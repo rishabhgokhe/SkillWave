@@ -19,6 +19,7 @@ body {
 }
 
 .wrapper {
+  padding: 0;
   width: 90%;
   max-width: 1536px;
   margin-inline: auto;
@@ -43,7 +44,7 @@ body {
 
 .item {
   width: 200px;
-  height: 100px;
+  height: 50px;
   background-color: transparent;
   border-radius: 6px;
   position: absolute;
@@ -84,4 +85,40 @@ body {
 
 .item8 {
   animation-delay: calc(30s / 8 * (8 - 8) * -1);
+}
+
+/* ------------------------------------------------------------- */
+.home-image {
+  filter: drop-shadow(0 40px 10px rgba(0, 0, 0, 0.3));
+  animation: homeImageAnimation 1s infinite ease-in-out alternate;
+}
+
+@keyframes homeImageAnimation {
+  to {
+    transform: translateY(-10px);
+  }
+}
+
+.container2 {
+  height: 70vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  video {
+    width: 60%;
+    border-radius: 10px;
+    outline: none;
+    box-shadow: 0 40 60 rgb(0, 0, 0);
+  }
+}
+
+@media screen and (max-width:600px) {
+  .container2 {
+    height: unset;
+    padding: 4vh 1vb;
+    video {
+      width: 100%;
+    }
+  }
 }

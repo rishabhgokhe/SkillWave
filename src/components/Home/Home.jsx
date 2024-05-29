@@ -11,11 +11,11 @@ import {
   HStack,
 } from '@chakra-ui/react';
 import './home.scss';
-import home_img from '../../assets/images/home_image.JPG';
+import home_img from '../../assets/images/home_image.png';
 import Scroll from './Infinite_scroll';
-import GoogleSvg from "../../assets/svg/google_icon.svg"
-import YoutubeSvg from "../../assets/svg/youtube_icon.svg"
- 
+import YoutubeSvg from '../../assets/svg/youtube_icon.svg';
+import IntroVideo from '../../assets/videos/intro_video.mp4';
+
 export default function Home() {
   return (
     <section className="home">
@@ -37,21 +37,47 @@ export default function Home() {
             </Link>
           </VStack>
 
-          <Image boxSize={'sm'} src={home_img} objectFit={'contain'} />
+          <Image
+            boxSize={'sm'}
+            src={home_img}
+            objectFit={'contain'}
+            className="home-image"
+          />
         </Stack>
       </div>
 
-      <Box>
+      <Box padding={'8'} backgroundColor={'blackAlpha.800'}>
         <Heading
           textAlign={'center'}
           fontFamily={'body'}
           color={'yellow.400'}
-          children="OUR BRANDS"
+          children="TRUSTED BY BRANDS"
         />
       </Box>
-      <HStack >
-      <Scroll item1={GoogleSvg} item2={YoutubeSvg} item3={GoogleSvg} item4={GoogleSvg} item5={GoogleSvg} item6={GoogleSvg} item7={GoogleSvg} item8={GoogleSvg} />
+      <HStack>
+        <Scroll
+          item1={YoutubeSvg}
+          item2={YoutubeSvg}
+          item3={YoutubeSvg}
+          item4={YoutubeSvg}
+          item5={YoutubeSvg}
+          item6={YoutubeSvg}
+          item7={YoutubeSvg}
+          item8={YoutubeSvg}
+        />
       </HStack>
+
+      <div className="container2">
+        <video
+          autoPlay
+          controls
+          controlsList="nodownload nofullscreen noremoteplayback"
+          disablePictureInPicture
+          disableRemotePlayback
+          loop
+          src={IntroVideo}
+        ></video>
+      </div>
     </section>
   );
 }
