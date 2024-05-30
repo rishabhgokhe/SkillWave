@@ -28,8 +28,8 @@ export default function Home() {
           spacing={['16', '56']}
         >
           <VStack width={'full'} alignItems={['center', 'flex-end']}>
-            <Heading children="LEARN FROM THE EXPERTS" size={'2xl'} />
-            <Text children="Empower Yourself with Knowledge and Skills" />
+            <Heading textAlign={['center', 'left']} children="LEARN FROM THE EXPERTS" size={'2xl'} />
+            <Text textAlign={['center', 'left']} children="Empower Yourself with Knowledge and Skills" fontSize={'1.2rem'}/>
             <Link to="/courses">
               <Button size={'lg'} colorScheme="blue">
                 Explore Courses
