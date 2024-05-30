@@ -12,7 +12,7 @@ import {
 } from '@chakra-ui/react';
 import './home.scss';
 import home_img from '../../assets/images/home_image.png';
-import Scroll from './Infinite_scroll';
+import Scroll from '../ui/Infinite_scroll';
 import YoutubeSvg from '../../assets/svg/youtube_icon.svg';
 import IntroVideo from '../../assets/videos/intro_video.mp4';
 
