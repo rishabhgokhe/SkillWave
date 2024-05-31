@@ -16,10 +16,3 @@ export default function Login() {
     </Container>
   )
 }
-
-{/* <VStack>
-            <Heading children="Welcome to SkillWave" />
-            <form style={{width: '100%'}}>
-                <FormLabel></FormLabel>
-            </form>
-        </VStack> */}
