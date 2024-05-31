@@ -18,7 +18,7 @@ import { Link } from 'react-router-dom';
 
 export default function Header() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const isAuthenticated = true;
+  const isAuthenticated = false;
   const user = {
     role: 'admin',
   };
@@ -30,6 +30,7 @@ export default function Header() {
 
   return (
     <>
+    <div className='nav-bar'>
       <ColorModeSwitcher />
       <Button
         onClick={onOpen}
@@ -37,13 +38,13 @@ export default function Header() {
         width={'12'}
         height={'12'}
         rounded={'15'}
-        position={'fixed'}
-        top={'6'}
-        left={'6'}
+        // position={'fixed'}
+        // top={'6'}
+        // left={'6'}
       >
         <LuMenuSquare />
       </Button>
-
+      </div>
       <Drawer placement="left" onClose={onClose} isOpen={isOpen}>
         <DrawerOverlay backdropFilter={'blur(2px)'} />
         <DrawerContent>
@@ -65,6 +66,9 @@ export default function Header() {
               </Link>
               <Link onClick={onClose} to={'/mycourses'}>
                 <Button variant={'ghost'}>My Courses</Button>
+              </Link>
+              <Link onClick={onClose} to={'/notes'}>
+                <Button variant={'ghost'}>View Notes</Button>
               </Link>
               <Link onClick={onClose} to={'/notifications'}>
                 <Button variant={'ghost'}>Notifications</Button>

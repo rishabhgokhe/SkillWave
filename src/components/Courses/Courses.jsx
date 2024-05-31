@@ -57,6 +57,26 @@ export default function Courses() {
           lectureCount={10}
           handleAddToPlaylist={addToPlaylist}
         />
+        <CourseCard
+          title={'Web Development'}
+          description={'Welcome to the Ultimate Web Development Course'}
+          views={67}
+          creator={'Rishabh Gokhe'}
+          imageSRC={'https://infidata.in/assets/img/courses/web-development-training-in-bangalore.jpg'}
+          id={1}
+          lectureCount={10}
+          handleAddToPlaylist={addToPlaylist}
+        />
+        <CourseCard
+          title={'Web Development'}
+          description={'Welcome to the Ultimate Web Development Course'}
+          views={67}
+          creator={'Rishabh Gokhe'}
+          imageSRC={'https://infidata.in/assets/img/courses/web-development-training-in-bangalore.jpg'}
+          id={1}
+          lectureCount={10}
+          handleAddToPlaylist={addToPlaylist}
+        />
       </Stack>
     </Container>
   );
