@@ -11,7 +11,7 @@ import CourseCard from './CourseCard';
 
 export default function Courses() {
   const [keyword, setKeyword] = useState('');
-  const [category, setCategory] = useState('');
+  const [setCategory] = useState('');
   const categories = ['Development', 'Business', 'Software', 'Marketing'];
   function addToPlaylist() {
     console.log("Added item to Playlist");
