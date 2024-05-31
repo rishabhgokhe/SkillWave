@@ -13,7 +13,19 @@ import {
 import './home.scss';
 import home_img from '../../assets/images/home_image.png';
 import Scroll from '../ui/Infinite_scroll';
-import YoutubeSvg from '../../assets/svg/youtube_icon.svg';
+import FigmaSvg from '../../assets/svg/figma_icon.svg';
+import AmazonSvg from '../../assets/svg/amazon_icon.svg';
+import InstagramSvg from '../../assets/svg/instagram_icon.svg';
+import FoodpandaSvg from '../../assets/svg/foodpanda_icon.svg';
+// import SpotifySvg from '../../assets/svg/extras/spotify_icon.svg';
+// import SwiggySvg from '../../assets/svg/extras/swiggy_icon.svg';
+import WalmartSvg from '../../assets/svg/walmart_icon.svg';
+import GiphySvg from '../../assets/svg/giphy_icon.svg';
+import InstaCartSvg from '../../assets/svg/instacart_icon.svg';
+import BinanceSvg from '../../assets/svg/binance_icon.svg';
+
+
+
 import IntroVideo from '../../assets/videos/intro_video.mp4';
 import { FlipWords } from '../ui/flip_text.jsx';
  
@@ -57,14 +69,14 @@ export default function Home() {
       </Box>
       <HStack>
         <Scroll
-          item1={YoutubeSvg}
-          item2={YoutubeSvg}
-          item3={YoutubeSvg}
-          item4={YoutubeSvg}
-          item5={YoutubeSvg}
-          item6={YoutubeSvg}
-          item7={YoutubeSvg}
-          item8={YoutubeSvg}
+          item1={FigmaSvg}
+          item2={BinanceSvg}
+          item3={AmazonSvg}
+          item4={InstagramSvg}
+          item5={FoodpandaSvg}
+          item6={WalmartSvg}
+          item7={InstaCartSvg}
+          item8={GiphySvg}
         />
       </HStack>
 

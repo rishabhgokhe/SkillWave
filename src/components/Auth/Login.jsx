@@ -1,18 +1,78 @@
-import { Container, FormLabel, HStack, Heading, Image, VStack } from "@chakra-ui/react"
-import React from 'react'
+import { Container, FormLabel, Heading, Image, VStack, Box, Input, Link, Button, Flex } from "@chakra-ui/react"
+import React, { useState } from 'react';
+// import { useDispatch } from 'react-redux';
+// import { login } from '../../redux/actions/user';
 
 export default function Login() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  // const dispatch = useDispatch();
+
+  const submitHandler = e => {
+    e.preventDefault();
+    // dispatch(login(email, password));
+  };
+
   return (
     <Container>
-        <HStack justifyContent={'left'}  alignItems={'center'}>
-            <Image src={'https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg'} justifyContent={'left'} ></Image>
-            <VStack>
-            <Heading children="Welcome to SkillWave" />
-            <form style={{width: '100%'}}>
-                <FormLabel></FormLabel>
-            </form>
+      <Flex justifyContent={'left'} alignItems={'center'} height="80vh">
+        <Box width="40%">
+          <Image src={'https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg'} objectFit="cover" />
+        </Box>
+        <VStack width="60%" spacing={4} alignItems="stretch" p={4}>
+          <Heading children="Welcome to SkillWave" textAlign="center" />
+          <form onSubmit={submitHandler} style={{ width: '100%' }}>
+            <Box my={4}>
+              <FormLabel htmlFor="email" children="Email Address" />
+              <Input
+                required
+                id="email"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+                placeholder="abc@gmail.com"
+                type="email"
+                focusBorderColor="yellow.500"
+              />
+            </Box>
+
+            <Box my={4}>
+              <FormLabel htmlFor="password" children="Password" />
+              <Input
+                required
+                id="password"
+                value={password}
+                onChange={e => setPassword(e.target.value)}
+                placeholder="Enter Your Password"
+                type="password"
+                focusBorderColor="yellow.500"
+              />
+            </Box>
+
+            <Box textAlign="right">
+              <Link to="/forgetpassword">
+                <Button fontSize="sm" variant="link">
+                  Forget Password?
+                </Button>
+              </Link>
+            </Box>
+
+            <Button my={4} colorScheme="teal" type="submit" width="100%">
+              Login
+            </Button>
+
+            <Box textAlign="center" my={4}>
+              New User?{' '}
+              <Link to="/register">
+                <Button colorScheme="yellow" variant="link">
+                  Sign Up
+                </Button>{' '}
+                here
+              </Link>
+            </Box>
+          </form>
         </VStack>
-        </HStack>
+      </Flex>
     </Container>
-  )
+  );
 }

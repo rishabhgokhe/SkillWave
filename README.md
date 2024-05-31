@@ -9,6 +9,9 @@ SkillWave is an innovative online platform dedicated to empowering learners worl
 - **UI Library:** Chakra UI React Library
 - **Backend:** Node.js, Express.js
 
+## Currently Working on Feature (User Authentication)
+I am currently working on user authentcation login and register page.
+
 ## ⚙︎ Setup Instructions
 
 ### Prerequisites
@@ -32,9 +35,17 @@ SkillWave is an innovative online platform dedicated to empowering learners worl
 6. **Access the Application:**  
    Open your browser and navigate to [http://localhost:3000](http://localhost:3000).
 
+## Future Enhancements
+- Implement user authentication for accessing their course content.
+- Creating Routes for Each Dashboard Button.
+- Users can also become a Instructors.
+- Upadating Data Storage
+
 ## Live Preview
 
-Not yet live.. It will be deployed Soon
+SkillWave is live on Netlify [https://skill-wave.netlify.app/](https://skill-wave.netlify.app/) .
+
+It may take some time to load for the first time, as it is deployed on the free tier of [Netlify](https://www.netlify.com/), which puts the application to sleep in case of inactivity.
 
 ## Acknowledgments
 - [React](https://react.dev/) library for web and native user interfaces
