@@ -12,19 +12,20 @@ import {
   useDisclosure,
 } from '@chakra-ui/react';
 import { LuMenuSquare } from 'react-icons/lu';
-import { IoLogOut } from "react-icons/io5";
-import { MdSpaceDashboard } from "react-icons/md";
+import { IoLogOut } from 'react-icons/io5';
+import { MdSpaceDashboard } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 
 export default function Header() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const isAuthenticated = true;
   const user = {
-    role: "admin"
-  }
+    role: 'admin',
+  };
 
   function handleLogout() {
-    console.log("Logged out");
+    console.log('Logged out');
+    onClose();
   }
 
   return (
@@ -55,50 +56,72 @@ export default function Header() {
             SkillWave
           </DrawerHeader>
           <DrawerBody>
-            <VStack spacing={'2'} alignItems={'flex-start'}  >
-              <Link to={'/'}>
+            <VStack spacing={'2'} alignItems={'flex-start'}>
+              <Link onClick={onClose} to={'/'}>
                 <Button variant={'ghost'}>Home</Button>
               </Link>
-              <Link to={'/courses'}>
+              <Link onClick={onClose} to={'/courses'}>
                 <Button variant={'ghost'}>Explore Courses</Button>
               </Link>
-              <Link to={'/mycourses'}>
+              <Link onClick={onClose} to={'/mycourses'}>
                 <Button variant={'ghost'}>My Courses</Button>
               </Link>
-              <Link to={'/notifications'}>
+              <Link onClick={onClose} to={'/notifications'}>
                 <Button variant={'ghost'}>Notifications</Button>
               </Link>
-              <Link to={'/about'}>
+              <Link onClick={onClose} to={'/about'}>
                 <Button variant={'ghost'}>About Us</Button>
               </Link>
-              <Link to={'/contact'}>
+              <Link onClick={onClose} to={'/contact'}>
                 <Button variant={'ghost'}>Contact Us</Button>
               </Link>
-              <Link to={'/settings'}>
+              <Link onClick={onClose} to={'/settings'}>
                 <Button variant={'ghost'}>Settings</Button>
               </Link>
             </VStack>
 
-            <HStack justifyContent={'space-evenly'} position={'absolute'} bottom={'2rem'} width={'80%'}>
-              {isAuthenticated? (<>
-              <VStack>
-                <HStack>
-                <Link to={'/profile'} > <Button colorScheme='yellow' >Profile</Button></Link>
-                <Button variant={'ghost'} onClick={handleLogout}><IoLogOut/> Logout</Button>
-
-                </HStack>
-{user && user.role === "admin" && <Link to='/admin/dashboard'>
-  <Button variant={'ghost'} colorScheme='teal'> <MdSpaceDashboard style={{margin: '3px'}}/> Dashboard</Button>
-</Link> }
-
-
-              </VStack>
-              
-              </>) : (<>
-              <Link to={'/login'} > <Button colorScheme='blue' >Login</Button></Link>
-              <p>OR</p>
-              <Link to={'/register'} > <Button colorScheme='blue' >Sign Up</Button></Link>
-              </>)}
+            <HStack
+              justifyContent={'space-evenly'}
+              position={'absolute'}
+              bottom={'2rem'}
+              width={'80%'}
+            >
+              {isAuthenticated ? (
+                <>
+                  <VStack>
+                    <HStack>
+                      <Link onClick={onClose} to={'/profile'}>
+                        {' '}
+                        <Button colorScheme="yellow">Profile</Button>
+                      </Link>
+                      <Button variant={'ghost'} onClick={handleLogout}>
+                        <IoLogOut /> Logout
+                      </Button>
+                    </HStack>
+                    {user && user.role === 'admin' && (
+                      <Link onClick={onClose} to="/admin/dashboard">
+                        <Button variant={'ghost'} colorScheme="teal">
+                          {' '}
+                          <MdSpaceDashboard style={{ margin: '3px' }} />{' '}
+                          Dashboard
+                        </Button>
+                      </Link>
+                    )}
+                  </VStack>
+                </>
+              ) : (
+                <>
+                  <Link onClick={onClose} to={'/login'}>
+                    {' '}
+                    <Button colorScheme="blue">Login</Button>
+                  </Link>
+                  <p>OR</p>
+                  <Link onClick={onClose} to={'/register'}>
+                    {' '}
+                    <Button colorScheme="blue">Sign Up</Button>
+                  </Link>
+                </>
+              )}
             </HStack>
           </DrawerBody>
         </DrawerContent>

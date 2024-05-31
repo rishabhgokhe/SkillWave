@@ -113,6 +113,11 @@ body {
   }
 }
 
+.flip-text {
+  display: flex;
+  justify-content: flex-end;
+}
+
 @media screen and (max-width:600px) {
   .container2 {
     height: unset;
@@ -120,5 +125,18 @@ body {
     video {
       width: 100%;
     }
+  }
+  .flip-text {
+    justify-content: center;
+  }
+}
+
+
+.course {
+  width: 250px;
+  margin-bottom: 1rem;
+  transition: all 0.5s;
+  &:hover {
+    transform: translateY(-10px);
   }
 }

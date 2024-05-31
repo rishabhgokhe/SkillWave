@@ -15,8 +15,10 @@ import home_img from '../../assets/images/home_image.png';
 import Scroll from '../ui/Infinite_scroll';
 import YoutubeSvg from '../../assets/svg/youtube_icon.svg';
 import IntroVideo from '../../assets/videos/intro_video.mp4';
-
+import { FlipWords } from '../ui/flip_text.jsx';
+ 
 export default function Home() {
+
   return (
     <section className="home">
       <div className="container">
@@ -28,7 +30,7 @@ export default function Home() {
           spacing={['16', '56']}
         >
           <VStack width={'full'} alignItems={['center', 'flex-end']}>
-            <Heading textAlign={['center', 'left']} children="LEARN FROM THE EXPERTS" size={'2xl'} />
+            <Heading textAlign={['center', 'left']} size={'2xl'}>LEARN FROM THE EXPERTS<FlipWords words={['Development', 'Business', 'Finance', 'Software', 'Design', 'Marketing', 'Fitness', 'Music']} className={'flip-text'} /></Heading>
             <Text textAlign={['center', 'left']} children="Empower Yourself with Knowledge and Skills" fontSize={'1.2rem'}/>
             <Link to="/courses">
               <Button size={'lg'} colorScheme="blue">
@@ -51,8 +53,7 @@ export default function Home() {
           textAlign={'center'}
           fontFamily={'body'}
           color={'yellow.400'}
-          children="TRUSTED BY BRANDS"
-        />
+        >Trusted by Brands</Heading>
       </Box>
       <HStack>
         <Scroll
@@ -77,6 +78,8 @@ export default function Home() {
           loop
           src={IntroVideo}
         ></video>
+
+
       </div>
     </section>
   );
