@@ -11,7 +11,7 @@ import {
   VStack,
   useDisclosure,
 } from '@chakra-ui/react';
-import { LuMenuSquare } from 'react-icons/lu';
+import { TiThMenu } from 'react-icons/ti';
 import { IoLogOut } from 'react-icons/io5';
 import { MdSpaceDashboard } from 'react-icons/md';
 import { Link } from 'react-router-dom';
@@ -30,20 +30,23 @@ export default function Header() {
 
   return (
     <>
-    <div className='nav-bar'>
-      <ColorModeSwitcher />
-      <Button
-        onClick={onOpen}
-        colorScheme="yellow"
-        width={'12'}
-        height={'12'}
-        rounded={'15'}
-        // position={'fixed'}
-        // top={'6'}
-        // left={'6'}
-      >
-        <LuMenuSquare />
-      </Button>
+      <div className="nav-bar">
+        <ColorModeSwitcher />
+        <Button
+          padding={'0'}
+          margin={'0'}
+          onClick={onOpen}
+          colorScheme="brand"
+          variant={'outline'}
+          width={'12'}
+          height={'12'}
+          rounded={'15'}
+          // position={'fixed'}
+          // top={'6'}
+          // left={'6'}
+        >
+          <TiThMenu />
+        </Button>
       </div>
       <Drawer placement="left" onClose={onClose} isOpen={isOpen}>
         <DrawerOverlay backdropFilter={'blur(2px)'} />

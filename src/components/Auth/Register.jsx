@@ -29,7 +29,7 @@ export default function Register() {
 
   return (
     <Container>
-      <Flex justifyContent={'left'} alignItems={'center'} height="80vh">
+      <Flex justifyContent={'left'} alignItems={'center'}>
         <Box width="40%">
           <Image src={'https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg'} objectFit="cover" />
         </Box>

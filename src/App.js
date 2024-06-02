@@ -8,6 +8,9 @@ import Login from './components/Auth/Login.jsx';
 import Register from './components/Auth/Register.jsx';
 import ForgetPassword from './components/Auth/ForgetPassword.jsx';
 import ResetPassword from './components/Auth/ResetPassword.jsx';
+import ContactUs from './components/ContactMe/ContactUs.jsx';
+import Request from './components/ContactMe/Request.jsx';
+import About from './components/About/About.jsx';
 
 function App() {
   return (
@@ -17,6 +20,9 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/courses' element={<Courses />} ></Route>
         <Route path='/login' element={<Login />} ></Route>
+        <Route path='/contact' element={<ContactUs />} />
+        <Route path='/request' element={<Request />} />
+        <Route path='/about' element={<About />} />
         <Route path='/register' element={<Register />} />
         <Route path='/forgetpassword' element={<ForgetPassword />} />
         <Route path='/resetpassword/:token' element={<ResetPassword />} />

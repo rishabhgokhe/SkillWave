@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 .container {
   height: 100vh;
   padding: 5rem;
@@ -164,3 +166,9 @@ body {
 .sign-up-upload-avatar::file-selector-button {
   @include fileUploadButtonStyling();
 }
+
+
+// About.jsx Styling
+// .about-us-name {
+//   font-family: sans-serif;
+// }
