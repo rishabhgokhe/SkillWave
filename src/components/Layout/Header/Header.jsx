@@ -70,6 +70,9 @@ export default function Header() {
               <Link onClick={onClose} to={'/mycourses'}>
                 <Button variant={'ghost'}>My Courses</Button>
               </Link>
+              <Link onClick={onClose} to={'/subscribe'}>
+                <Button variant={'ghost'}>Subscription Plan</Button>
+              </Link>
               <Link onClick={onClose} to={'/notes'}>
                 <Button variant={'ghost'}>View Notes</Button>
               </Link>
