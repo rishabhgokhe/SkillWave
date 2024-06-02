@@ -4,12 +4,12 @@ import {
   Stack,
   VStack,
   Text,
-  Link,
   Button,
   Image,
   Box,
   HStack,
 } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 import './home.scss';
 import home_img from '../../assets/images/home_image.png';
 import Scroll from '../ui/Infinite_scroll';
