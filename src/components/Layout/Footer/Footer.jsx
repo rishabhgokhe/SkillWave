@@ -3,6 +3,7 @@ import React from 'react'
 import { VscGithub } from "react-icons/vsc";
 import { FaInstagram } from "react-icons/fa6";
 import { FaXTwitter } from "react-icons/fa6";
+import { BsLinkedin } from "react-icons/bs";
 
 
  export default function Footer() {
@@ -19,10 +20,13 @@ import { FaXTwitter } from "react-icons/fa6";
         <a href='https://github.com/rishabhgokhe' target={'blank'}>
            Github <VscGithub fontSize={'2rem'}/> 
         </a>
+        <a href='https://www.linkedin.com/in/rishabh-gokhe-22168b287' target={'blank'}>
+           Linkedin <BsLinkedin fontSize={'2rem'}/> 
+        </a>
         <a href='https://twitter.com/rishabhgokhe' target={'blank'}>
            X(Twitter)<FaXTwitter fontSize={'2rem'}/> 
         </a>
-        <a href='https://instagram.com/rishabhgokhe' target={'blank'}>
+        <a href='https://instagram.com/rishabh_gokhe' target={'blank'}>
            Instagram <FaInstagram fontSize={'2rem'}/> 
         </a>
     </HStack>

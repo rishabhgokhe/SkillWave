@@ -1,5 +1,6 @@
-import { Container, FormLabel, Heading, Image, VStack, Box, Input, Link, Button, Flex } from "@chakra-ui/react"
+import { Container, FormLabel, Heading, Image, VStack, Box, Input, Button, Flex } from "@chakra-ui/react"
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 // import { useDispatch } from 'react-redux';
 // import { login } from '../../redux/actions/user';
 
@@ -30,9 +31,9 @@ export default function Login() {
                 id="email"
                 value={email}
                 onChange={e => setEmail(e.target.value)}
-                placeholder="abc@gmail.com"
+                placeholder="Enter your email"
                 type="email"
-                focusBorderColor="yellow.500"
+                focusBorderColor="blue.500"
               />
             </Box>
 
@@ -45,7 +46,7 @@ export default function Login() {
                 onChange={e => setPassword(e.target.value)}
                 placeholder="Enter Your Password"
                 type="password"
-                focusBorderColor="yellow.500"
+                focusBorderColor="blue.500"
               />
             </Box>
 
@@ -62,9 +63,9 @@ export default function Login() {
             </Button>
 
             <Box textAlign="center" my={4}>
-              New User?{' '}
+              New User ? {' '}
               <Link to="/register">
-                <Button colorScheme="yellow" variant="link">
+                <Button colorScheme="blue" variant="link">
                   Sign Up
                 </Button>{' '}
                 here

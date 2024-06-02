@@ -151,3 +151,16 @@ body {
   padding: 10px 20px;
   z-index: 100;
 }
+
+// Register.jsx styling
+@mixin fileUploadButtonStyling() {
+  cursor: pointer;
+  width: 115%;
+  margin-left: -6%;
+  height: 100%;
+  border: none;
+}
+
+.sign-up-upload-avatar::file-selector-button {
+  @include fileUploadButtonStyling();
+}
