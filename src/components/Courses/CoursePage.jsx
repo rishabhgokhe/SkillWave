@@ -46,6 +46,7 @@ export default function CoursePage() {
           controls
           style={{ marginTop: '6px', overflowX: 'scroll' }}
           controlsList="nodownload"
+          playsInline
           src={video}
         ></video>
         <Heading p="4" pb="0" size={'md'}>

@@ -23,12 +23,13 @@ import WalmartSvg from '../../assets/svg/walmart_icon.svg';
 import GiphySvg from '../../assets/svg/giphy_icon.svg';
 import InstaCartSvg from '../../assets/svg/instacart_icon.svg';
 import BinanceSvg from '../../assets/svg/binance_icon.svg';
+import { BsPersonLinesFill } from "react-icons/bs";
 
 
 
 import IntroVideo from '../../assets/videos/intro_video.mp4';
 import { FlipWords } from '../ui/flip_text.jsx';
- 
+
 export default function Home() {
 
   return (
@@ -93,6 +94,19 @@ export default function Home() {
 
 
       </div>
+
+      <Box>
+        <VStack>
+          <Heading>About Us</Heading>
+          <Text maxW={['80%', '65%']} textAlign={['left', 'center']}>
+          At SkillWave, we believe in the power of
+          education to transform lives and empower individuals to achieve their
+          fullest potential. Our mission is to make high-quality education
+          accessible to everyone, everywhere.
+          </Text>
+          <Button leftIcon={<BsPersonLinesFill />} mb='4' variant={'outline'} colorScheme='teal'>Know More..</Button>
+        </VStack>
+      </Box>
     </section>
   );
 }

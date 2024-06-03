@@ -79,7 +79,7 @@ export default function About() {
           fullest potential. Our mission is to make high-quality education
           accessible to everyone, everywhere.
         </Text>
-        <Link to="/subscribe">
+        <Link to="/subscribenewsletter">
           <Button variant={'outline'} colorScheme="teal">
             Subscribe to our NewsLetter
           </Button>

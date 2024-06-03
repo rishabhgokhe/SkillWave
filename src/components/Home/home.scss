@@ -91,6 +91,15 @@ body {
 }
 
 /* ------------------------------------------------------------- */
+
+.home {
+  background-image: url('../../assets/images/background_image.png');
+  background-position: top;
+  // background-size: cover;
+  background-repeat: no-repeat;
+  // background-attachment: local;
+}
+
 .home-image {
   filter: drop-shadow(0 40px 10px rgba(0, 0, 0, 0.3));
   animation: homeImageAnimation 1s infinite ease-in-out alternate;
