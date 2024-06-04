@@ -28,9 +28,9 @@ export default function Subscribe() {
           overflow="hidden"
           borderWidth="1px"
           borderColor="gray.200"
-          transform="scale(1.05)"
-          transition="transform 0.2s"
-          _hover={{ transform: 'scale(1.1)' }}
+          // transform="scale(1.05)"
+          // transition="transform 0.2s"
+          // _hover={{ transform: 'scale(1.1)' }}
         >
           <Box bg="teal.500" py={6} textAlign="center">
             <Heading as="h2" size="lg" color="white">

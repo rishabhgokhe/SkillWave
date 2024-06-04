@@ -11,14 +11,15 @@ import {
   VStack,
   useDisclosure,
 } from '@chakra-ui/react';
-import { TiThMenu } from 'react-icons/ti';
+// import { TiThMenu } from 'react-icons/ti';
+import Menu07Icon from '../../../assets/svg/Menu07Icon.jsx'
 import { IoLogOut } from 'react-icons/io5';
 import { MdSpaceDashboard } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 
 export default function Header() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const isAuthenticated = false;
+  const isAuthenticated = true;
   const user = {
     role: 'admin',
   };
@@ -41,11 +42,12 @@ export default function Header() {
           width={'12'}
           height={'12'}
           rounded={'15'}
+          _hover={{background: 'blackAlpha.300'}}
           // position={'fixed'}
           // top={'6'}
           // left={'6'}
         >
-          <TiThMenu />
+          <Menu07Icon />
         </Button>
       </div>
       <Drawer placement="left" onClose={onClose} isOpen={isOpen}>

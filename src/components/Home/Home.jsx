@@ -23,15 +23,12 @@ import WalmartSvg from '../../assets/svg/walmart_icon.svg';
 import GiphySvg from '../../assets/svg/giphy_icon.svg';
 import InstaCartSvg from '../../assets/svg/instacart_icon.svg';
 import BinanceSvg from '../../assets/svg/binance_icon.svg';
-import { BsPersonLinesFill } from "react-icons/bs";
-
-
-
-import IntroVideo from '../../assets/videos/intro_video.mp4';
+import { BsPersonLinesFill } from 'react-icons/bs';
+// import IntroVideo from '../../assets/videos/intro_video.mp4';
 import { FlipWords } from '../ui/flip_text.jsx';
+import SearchVisualIcon from '../../assets/svg/SearchVisualIcon.jsx'
 
 export default function Home() {
-
   return (
     <section className="home">
       <div className="container">
@@ -43,16 +40,35 @@ export default function Home() {
           spacing={['16', '56']}
         >
           <VStack width={'full'} alignItems={['center', 'flex-end']}>
-            <Heading textAlign={['center', 'left']} size={'2xl'}>LEARN FROM THE EXPERTS<FlipWords words={['Development', 'Business', 'Finance', 'Software', 'Design', 'Marketing', 'Fitness', 'Music']} className={'flip-text'} /></Heading>
-            <Text textAlign={['center', 'left']} children="Empower Yourself with Knowledge and Skills" fontSize={'1.2rem'}/>
+            <Heading className='block' textAlign={['center', 'left']} size={'2xl'}>
+              LEARN FROM THE EXPERTS
+              <FlipWords
+                words={[
+                  'Development',
+                  'Business',
+                  'Finance',
+                  'Software',
+                  'Design',
+                  'Marketing',
+                  'Fitness',
+                  'Music',
+                ]}
+                className={'flip-text block'}
+              />
+            </Heading>
+            <Text
+              textAlign={['center', 'left']}
+              children="Empower Yourself with Knowledge and Skills"
+              fontSize={'1.2rem'}
+            />
             <Link to="/courses">
-              <Button size={'lg'} colorScheme="blue">
+              <Button rightIcon={<SearchVisualIcon />} className='block' size={'lg'} colorScheme="blue">
                 Explore Courses
               </Button>
             </Link>
           </VStack>
 
-          <Image
+          <Image 
             boxSize={'sm'}
             src={home_img}
             objectFit={'contain'}
@@ -62,13 +78,12 @@ export default function Home() {
       </div>
 
       <Box padding={'8'} backgroundColor={'blackAlpha.800'}>
-        <Heading
-          textAlign={'center'}
-          fontFamily={'body'}
-          color={'yellow.400'}
-        >Trusted by Brands</Heading>
+        <Heading className='block' textAlign={'center'} fontFamily={'body'} color={'yellow.400'}>
+          Trusted by Brands
+        </Heading>
       </Box>
-      <HStack>
+      <HStack
+      className='block'>
         <Scroll
           item1={FigmaSvg}
           item2={BinanceSvg}
@@ -81,30 +96,40 @@ export default function Home() {
         />
       </HStack>
 
-      <div className="container2">
+      {/* <div className="container2">
         <video
+        className='block'
           autoPlay
           controls
           controlsList="nodownload nofullscreen noremoteplayback"
           disablePictureInPicture
           disableRemotePlayback
           loop
+          playsInline
           src={IntroVideo}
         ></video>
-
-
-      </div>
+      </div> */}
 
       <Box>
         <VStack>
-          <Heading>About Us</Heading>
-          <Text maxW={['80%', '65%']} textAlign={['left', 'center']}>
-          At SkillWave, we believe in the power of
-          education to transform lives and empower individuals to achieve their
-          fullest potential. Our mission is to make high-quality education
-          accessible to everyone, everywhere.
+          <Heading className='block'>About Us</Heading>
+          <Text className='block' maxW={['80%', '65%']} textAlign={['left', 'center']}>
+            At SkillWave, we believe in the power of education to transform
+            lives and empower individuals to achieve their fullest potential.
+            Our mission is to make high-quality education accessible to
+            everyone, everywhere.
           </Text>
-          <Button leftIcon={<BsPersonLinesFill />} mb='4' variant={'outline'} colorScheme='teal'>Know More..</Button>
+          <Link to="/about">
+            <Button
+            className='block'
+              leftIcon={<BsPersonLinesFill />}
+              mb="4"
+              variant={'outline'}
+              colorScheme="teal"
+            >
+              Know More..
+            </Button>
+          </Link>{' '}
         </VStack>
       </Box>
     </section>

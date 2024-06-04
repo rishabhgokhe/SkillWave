@@ -1,4 +1,5 @@
 import React from 'react';
+import { Heading } from '@chakra-ui/react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './components/Home/Home.jsx';
 import Header from './components/Layout/Header/Header.jsx';
@@ -48,6 +49,7 @@ function App() {
         <Route path="/paymentfail" element={<PaymentFail />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <Heading m='4' as='h2' size={'sm'} textAlign={'center'} >Proudly made in 🇮🇳 by Rishabh Gokhe</Heading>
       <Footer />
     </Router>
   );
