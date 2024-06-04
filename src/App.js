@@ -20,6 +20,8 @@ import PaymentFail from './components/Payments/PaymentFail.jsx';
 import Profile from './components/Profile/Profile.jsx';
 import CoursePage from './components/Courses/CoursePage.jsx';
 import NewletterSubscribe from './components/Email Service/NewletterSubscribe.jsx';
+import ChangePassword from './components/Profile/ChangePassword.jsx';
+import Updateprofile from './components/Profile/Updateprofile.jsx';
 
 function App() {
 
@@ -43,6 +45,9 @@ function App() {
         <Route path="/resetpassword/:token" element={<ResetPassword />} />
         <Route path='/subscribenewsletter' element={<NewletterSubscribe />} />
         <Route path="/course/:id" element={<CoursePage />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/updateprofile" element={<Updateprofile />} />
+        <Route path="/changepassword" element={<ChangePassword />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/subscribe" element={<Subscribe />} />
         <Route path="/paymentsuccess" element={<PaymentSuccess />} />
