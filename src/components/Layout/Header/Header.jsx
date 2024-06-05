@@ -5,6 +5,7 @@ import {
   Drawer,
   DrawerBody,
   DrawerContent,
+  DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
   HStack,
@@ -12,7 +13,6 @@ import {
   useDisclosure,
 } from '@chakra-ui/react';
 // import { TiThMenu } from 'react-icons/ti';
-import Menu07Icon from '../../../assets/svg/Menu07Icon.jsx';
 import { Link } from 'react-router-dom';
 //----------------icon import ---------------------//
 import Home01Icon from '../../../assets/svg/Home01Icon.jsx';
@@ -27,6 +27,7 @@ import Settings02Icon from '../../../assets/svg/Settings02Icon.jsx';
 import UserSquareIcon from '../../../assets/svg/UserSquareIcon.jsx';
 import Analytics02Icon from '../../../assets/svg/Analytics02Icon.jsx';
 import LoginSquare01Icon from '../../../assets/svg/LoginSquare01Icon.jsx';
+import SidebarLeftIcon from '../../../assets/svg/SidebarLeftIcon.jsx';
 
 export default function Header() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -43,13 +44,12 @@ export default function Header() {
   return (
     <>
       <div className="nav-bar">
-        <ColorModeSwitcher />
+        {/* <ColorModeSwitcher /> */}
         <Button
           padding={'0'}
           margin={'0'}
           onClick={onOpen}
           colorScheme="brand"
-          variant={'outline'}
           width={'12'}
           height={'12'}
           rounded={'15'}
@@ -58,7 +58,7 @@ export default function Header() {
           // top={'6'}
           // left={'6'}
         >
-          <Menu07Icon />
+          <SidebarLeftIcon />
         </Button>
       </div>
       <Drawer placement="left" onClose={onClose} isOpen={isOpen}>
@@ -73,7 +73,7 @@ export default function Header() {
             SkillWave
           </DrawerHeader>
           <DrawerBody>
-            <VStack spacing={'2'} alignItems={'flex-start'}>
+            <VStack overflowY={'scroll'} spacing={'2'} alignItems={'flex-start'} height={'85%'}>
               <Link onClick={onClose} to={'/'}>
                 <Button leftIcon={<Home01Icon />} variant={'ghost'}>
                   Home
@@ -135,6 +135,7 @@ export default function Header() {
             </VStack>
 
             <HStack
+            bg={'white'}
               justifyContent={'space-evenly'}
               position={'absolute'}
               bottom={'2rem'}
@@ -161,6 +162,7 @@ export default function Header() {
             </HStack>
           </DrawerBody>
         </DrawerContent>
+        <DrawerFooter></DrawerFooter>
       </Drawer>
     </>
   );
