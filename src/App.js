@@ -22,6 +22,10 @@ import CoursePage from './components/Courses/CoursePage.jsx';
 import NewletterSubscribe from './components/Email Service/NewletterSubscribe.jsx';
 import ChangePassword from './components/Profile/ChangePassword.jsx';
 import Updateprofile from './components/Profile/Updateprofile.jsx';
+import Dashboard from './components/Admin/Dashboard/Dashboard.jsx';
+import Users from './components/Admin/Users/Users.jsx';
+import AdminCourses from './components/Admin/Admin Courses/AdminCourses.jsx';
+import CreateCourse from './components/Admin/Create Course/CreateCourse.jsx';
 
 function App() {
 
@@ -53,6 +57,11 @@ function App() {
         <Route path="/paymentsuccess" element={<PaymentSuccess />} />
         <Route path="/paymentfail" element={<PaymentFail />} />
         <Route path="*" element={<NotFound />} />
+
+        <Route path='admin/dashboard' element={<Dashboard />} ></Route>
+        <Route path='admin/users' element={<Users />} ></Route>
+        <Route path='admin/courses' element={<AdminCourses />} ></Route>
+        <Route path='admin/createcourse' element={<CreateCourse />} ></Route>
       </Routes>
       <Heading m='4' as='h2' size={'sm'} textAlign={'center'} >Proudly made in 🇮🇳 by Rishabh Gokhe</Heading>
       <Footer />
