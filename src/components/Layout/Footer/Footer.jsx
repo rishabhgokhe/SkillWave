@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom';
 import { FaInstagram } from 'react-icons/fa6';
 // import { FaXTwitter } from "react-icons/fa6";
 // import { BsLinkedin } from "react-icons/bs";
-import MailOpenIcon from '../../../assets/svg/MailOpenIcon';
 import NewTwitterRectangleIcon from '../../../assets/svg/NewTwitterRectangleIcon';
 import Linkedin01Icon from '../../../assets/svg/Linkedin01Icon';
 import GithubIcon from '../../../assets/svg/GithubIcon';
+import MailAdd02Icon from '../../../assets/svg/MailAdd02Icon';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -38,7 +38,7 @@ export default function Footer() {
             <FaInstagram fontSize={'2rem'} />
           </a>
           <a href={`mailto:rishabhgokhe@gmail.com`} target={'blank'}>
-            <MailOpenIcon />
+            <MailAdd02Icon />
           </a>{' '}
         </HStack>
         <Heading

@@ -52,7 +52,6 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/updateprofile" element={<Updateprofile />} />
         <Route path="/changepassword" element={<ChangePassword />} />
-        <Route path="/profile" element={<Profile />} />
         <Route path="/subscribe" element={<Subscribe />} />
         <Route path="/paymentsuccess" element={<PaymentSuccess />} />
         <Route path="/paymentfail" element={<PaymentFail />} />

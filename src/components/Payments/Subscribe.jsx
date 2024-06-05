@@ -11,6 +11,7 @@ import {
 } from '@chakra-ui/react';
 import React from 'react';
 import { MdVerified as CheckIcon } from 'react-icons/md';
+import CircleArrowRight02Icon from '../../assets/svg/CircleArrowRight02Icon'
 
 export default function Subscribe() {
   return (
@@ -71,7 +72,7 @@ export default function Subscribe() {
                 Access to community forums
               </ListItem>
             </List>
-            <Button colorScheme="teal" size="lg" width="full" mt={4}>
+            <Button rightIcon={<CircleArrowRight02Icon />} colorScheme="teal" size="lg" width="full" mt={4}>
               Get Started
             </Button>
           </VStack>

@@ -12,10 +12,21 @@ import {
   useDisclosure,
 } from '@chakra-ui/react';
 // import { TiThMenu } from 'react-icons/ti';
-import Menu07Icon from '../../../assets/svg/Menu07Icon.jsx'
-import { IoLogOut } from 'react-icons/io5';
-import { MdSpaceDashboard } from 'react-icons/md';
+import Menu07Icon from '../../../assets/svg/Menu07Icon.jsx';
 import { Link } from 'react-router-dom';
+//----------------icon import ---------------------//
+import Home01Icon from '../../../assets/svg/Home01Icon.jsx';
+import CourseIcon from '../../../assets/svg/CourseIcon.jsx';
+import AudioBook01Icon from '../../../assets/svg/AudioBook01Icon.jsx';
+import Award05Icon from '../../../assets/svg/Award05Icon.jsx';
+import NoteEditIcon from '../../../assets/svg/NoteEditIcon.jsx';
+import Notification03Icon from '../../../assets/svg/Notification03Icon.jsx';
+import InformationCircleIcon from '../../../assets/svg/InformationCircleIcon.jsx';
+import MailUpload01Icon from '../../../assets/svg/MailUpload01Icon.jsx';
+import Settings02Icon from '../../../assets/svg/Settings02Icon.jsx';
+import UserSquareIcon from '../../../assets/svg/UserSquareIcon.jsx';
+import Analytics02Icon from '../../../assets/svg/Analytics02Icon.jsx';
+import LoginSquare01Icon from '../../../assets/svg/LoginSquare01Icon.jsx';
 
 export default function Header() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -42,7 +53,7 @@ export default function Header() {
           width={'12'}
           height={'12'}
           rounded={'15'}
-          _hover={{background: 'blackAlpha.300'}}
+          _hover={{ background: 'blackAlpha.300' }}
           // position={'fixed'}
           // top={'6'}
           // left={'6'}
@@ -64,31 +75,62 @@ export default function Header() {
           <DrawerBody>
             <VStack spacing={'2'} alignItems={'flex-start'}>
               <Link onClick={onClose} to={'/'}>
-                <Button variant={'ghost'}>Home</Button>
+                <Button leftIcon={<Home01Icon />} variant={'ghost'}>
+                  Home
+                </Button>
               </Link>
+
+              {isAuthenticated ? (
+                <>
+                <Link onClick={onClose} to={'/profile'}>
+                    <Button leftIcon={<UserSquareIcon />} variant={'ghost'}>Profile</Button>
+                    </Link>
+                    {user && user.role === 'admin' && (
+                      <Link onClick={onClose} to="/admin/dashboard">
+                        <Button leftIcon={<Analytics02Icon/>} variant={'ghost'} >Dashboard</Button>
+                      </Link>
+                    )}
+                </>
+              ) : null}
               <Link onClick={onClose} to={'/courses'}>
-                <Button variant={'ghost'}>Explore Courses</Button>
+                <Button leftIcon={<CourseIcon />} variant={'ghost'}>
+                  Explore Courses
+                </Button>
               </Link>
               <Link onClick={onClose} to={'/mycourses'}>
-                <Button variant={'ghost'}>My Courses</Button>
+                <Button leftIcon={<AudioBook01Icon />} variant={'ghost'}>
+                  My Courses
+                </Button>
               </Link>
               <Link onClick={onClose} to={'/subscribe'}>
-                <Button variant={'ghost'}>Subscription Plan</Button>
+                <Button leftIcon={<Award05Icon />} variant={'ghost'}>
+                  Subscription Plan
+                </Button>
               </Link>
               <Link onClick={onClose} to={'/notes'}>
-                <Button variant={'ghost'}>View Notes</Button>
+                <Button leftIcon={<NoteEditIcon />} variant={'ghost'}>
+                  View Notes
+                </Button>
               </Link>
               <Link onClick={onClose} to={'/notifications'}>
-                <Button variant={'ghost'}>Notifications</Button>
+                <Button leftIcon={<Notification03Icon />} variant={'ghost'}>
+                  Notifications
+                </Button>
               </Link>
               <Link onClick={onClose} to={'/about'}>
-                <Button variant={'ghost'}>About Us</Button>
+                <Button leftIcon={<InformationCircleIcon />} variant={'ghost'}>
+                  About Us
+                </Button>
               </Link>
               <Link onClick={onClose} to={'/contact'}>
-                <Button variant={'ghost'}>Contact Us</Button>
+                <Button leftIcon={<MailUpload01Icon />} variant={'ghost'}>
+                  Contact Us
+                </Button>
               </Link>
               <Link onClick={onClose} to={'/settings'}>
-                <Button variant={'ghost'}>Settings</Button>
+                <Button leftIcon={<Settings02Icon />} variant={'ghost'}>
+                  Settings
+                </Button>
               </Link>
             </VStack>
 
@@ -100,26 +142,8 @@ export default function Header() {
             >
               {isAuthenticated ? (
                 <>
-                  <VStack>
-                    <HStack>
-                      <Link onClick={onClose} to={'/profile'}>
-                        {' '}
-                        <Button colorScheme="yellow">Profile</Button>
-                      </Link>
-                      <Button variant={'ghost'} onClick={handleLogout}>
-                        <IoLogOut /> Logout
-                      </Button>
-                    </HStack>
-                    {user && user.role === 'admin' && (
-                      <Link onClick={onClose} to="/admin/dashboard">
-                        <Button variant={'ghost'} colorScheme="teal">
-                          {' '}
-                          <MdSpaceDashboard style={{ margin: '3px' }} />{' '}
-                          Dashboard
-                        </Button>
-                      </Link>
-                    )}
-                  </VStack>
+                      <Button leftIcon={<LoginSquare01Icon />} variant={'outline'} width={'full'} colorScheme='teal' onClick={handleLogout}>
+                        Logout</Button>
                 </>
               ) : (
                 <>

@@ -29,6 +29,9 @@ import { Link } from 'react-router-dom';
 import { BsPersonCheck } from 'react-icons/bs';
 import { PiPasswordFill } from 'react-icons/pi';
 import { MdBookmarkRemove } from 'react-icons/md';
+import UserAdd01Icon from '../../assets/svg/UserAdd01Icon';
+import PasswordValidationIcon from '../../assets/svg/PasswordValidationIcon';
+import ImageUploadIcon from '../../assets/svg/ImageUploadIcon';
 
 export default function Profile() {
   const user = {
@@ -96,7 +99,7 @@ export default function Profile() {
       >
         <VStack m={['4', '5']}>
           <Avatar boxSize="150px" />
-          <Button onClick={onOpen} mt="2" colorScheme="teal" variant="outline">
+          <Button rightIcon={<ImageUploadIcon />} onClick={onOpen} mt="2" colorScheme="teal" variant="outline">
             Change Photo
           </Button>
         </VStack>
@@ -140,10 +143,10 @@ export default function Profile() {
 
           <Stack justifyContent={'center'} direction={['column', 'row']}>
             <Link to="/updateprofile">
-              <Button leftIcon={<BsPersonCheck />}>Update Profile</Button>
+              <Button leftIcon={<UserAdd01Icon />}>Update Profile</Button>
             </Link>
             <Link to="/changepassword">
-              <Button leftIcon={<PiPasswordFill />}>Change Password</Button>
+              <Button leftIcon={<PasswordValidationIcon />}>Change Password</Button>
             </Link>
           </Stack>
         </VStack>
@@ -278,7 +281,7 @@ function closeHandler() {
               <VStack>
                 {avatar && <Avatar mb='3' src={avatar} boxSize='150px' />}
                 <Input onChange={changeImageHandler} type='file' className='sign-up-upload-avatar'></Input>
-                <Button w={'full'} type='submit'>Change</Button>
+                <Button rightIcon={<ImageUploadIcon />} w={'full'} type='submit'>Change</Button>
               </VStack>
             </form>
           </Container>

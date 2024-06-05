@@ -9,6 +9,9 @@ import {
 } from '@chakra-ui/react';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ShoppingCartCheckIn01Icon from '../../assets/svg/ShoppingCartCheckIn01Icon';
+import InformationDiamondIcon from '../../assets/svg/InformationDiamondIcon';
+
 export default function CourseCard({
   title,
   description,
@@ -50,13 +53,13 @@ export default function CourseCard({
       <Heading textAlign={'center'} size={'xs'}>{`Views: ${views}`}</Heading>
       <Stack direction={['column', 'row']} alignItems={'center'}>
         <Button
+        leftIcon={<ShoppingCartCheckIn01Icon />}
           colorScheme="blue"
           size={'sm'}
           onClick={() => handleAddToPlaylist(id)}
-          children='Add to Cart'
-        />
+        >Add to Cart</Button>
         <Link to={`/course/${id}`}>
-          <Button variant={'ghost'} colorScheme="blue" size={'sm'} children='Learn more' />
+          <Button rightIcon={<InformationDiamondIcon />} variant={'ghost'} colorScheme="blue" size={'sm'} >Learn more</Button>
         </Link>
       </Stack>
     </VStack>

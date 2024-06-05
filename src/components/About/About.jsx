@@ -14,6 +14,7 @@ import {
 import React from 'react';
 import { Link } from 'react-router-dom';
 import TermsAndCondition from '../../assets/docs/TermsAndCondition';
+import MailOpenIcon from '../../assets/svg/MailOpenIcon';
 
 const TandC = ({ termsAndCondition }) => {
   return (
@@ -66,8 +67,9 @@ export default function About() {
           <Text
             padding={'5'}
             textAlign={['center', 'left']}
-            children="Hello, I am a Full-Stack Developer currently pursuing a Computer Science and Enginnering Degree. My aim is to make a better world"
-          />
+          >
+            Hello, I'm Rishabh Gokhe, the founder of SkillWave. I am a passionate Full-Stack Developer currently pursuing a degree in Computer Science and Engineering. With a deep interest in technology and education, my aim is to create a platform that empowers individuals with the skills they need to thrive in the digital world. Through SkillWave, I aspire to make learning accessible and enjoyable, ultimately contributing to a better, more knowledgeable world. Join me on this journey towards innovation and excellence. Together, we can build a brighter future.
+          </Text>
         </VStack>
       </Stack>
 
@@ -80,7 +82,7 @@ export default function About() {
           accessible to everyone, everywhere.
         </Text>
         <Link to="/subscribenewsletter">
-          <Button variant={'outline'} colorScheme="teal">
+          <Button rightIcon={<MailOpenIcon />} variant={'outline'} colorScheme="teal">
             Subscribe to our NewsLetter
           </Button>
         </Link>

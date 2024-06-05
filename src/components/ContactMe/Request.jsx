@@ -1,7 +1,8 @@
 import { Container, FormLabel, Heading, VStack, Box, Input, Button, Textarea } from "@chakra-ui/react"
 import React, { useState } from 'react'
 import { Link } from "react-router-dom";
-import { MdOutgoingMail } from "react-icons/md";
+import MailSend01Icon from "../../assets/svg/MailSend01Icon";
+
 
 export default function Request() {
 
@@ -68,7 +69,7 @@ export default function Request() {
               />
             </Box>
 
-            <Button variant={'outline'} rightIcon={<MdOutgoingMail />} my={4} colorScheme="teal" type="submit" width="100%">
+            <Button variant={'outline'} rightIcon={<MailSend01Icon />} my={4} colorScheme="teal" type="submit" width="100%">
               Send Mail
             </Button>
 
