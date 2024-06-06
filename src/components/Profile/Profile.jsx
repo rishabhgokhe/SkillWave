@@ -26,8 +26,6 @@ import {
 } from '@chakra-ui/react';
 import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { BsPersonCheck } from 'react-icons/bs';
-import { PiPasswordFill } from 'react-icons/pi';
 import { MdBookmarkRemove } from 'react-icons/md';
 import UserAdd01Icon from '../../assets/svg/UserAdd01Icon';
 import PasswordValidationIcon from '../../assets/svg/PasswordValidationIcon';
