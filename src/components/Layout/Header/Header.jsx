@@ -1,5 +1,5 @@
 import React from 'react';
-import ColorModeSwitcher from '../../../ColorModeSwitcher';
+// import ColorModeSwitcher from '../../../ColorModeSwitcher';
 import {
   Button,
   Drawer,
@@ -9,10 +9,11 @@ import {
   DrawerHeader,
   DrawerOverlay,
   HStack,
+  Heading,
   VStack,
+  useBreakpointValue,
   useDisclosure,
 } from '@chakra-ui/react';
-// import { TiThMenu } from 'react-icons/ti';
 import { Link } from 'react-router-dom';
 //----------------icon import ---------------------//
 import Home01Icon from '../../../assets/svg/Home01Icon.jsx';
@@ -28,8 +29,10 @@ import UserSquareIcon from '../../../assets/svg/UserSquareIcon.jsx';
 import Analytics02Icon from '../../../assets/svg/Analytics02Icon.jsx';
 import LoginSquare01Icon from '../../../assets/svg/LoginSquare01Icon.jsx';
 import SidebarLeftIcon from '../../../assets/svg/SidebarLeftIcon.jsx';
+import UserIdVerificationIcon from '../../../assets/svg/UserIdVerificationIcon.jsx';
 
 export default function Header() {
+  const isDesktop = useBreakpointValue({ base: false, md: true });
   const { isOpen, onOpen, onClose } = useDisclosure();
   const isAuthenticated = true;
   const user = {
@@ -43,7 +46,7 @@ export default function Header() {
 
   return (
     <>
-      <div className="nav-bar">
+      <HStack className="nav-bar">
         {/* <ColorModeSwitcher /> */}
         <Button
           padding={'0'}
@@ -54,13 +57,87 @@ export default function Header() {
           height={'12'}
           rounded={'15'}
           _hover={{ background: 'blackAlpha.300' }}
-          // position={'fixed'}
-          // top={'6'}
-          // left={'6'}
         >
           <SidebarLeftIcon />
         </Button>
-      </div>
+        <Heading size={'lg'}>SkillWave</Heading>
+
+        {isDesktop && (
+          <>
+            <HStack ml={'550'}>
+              {isAuthenticated ? (
+                <>
+                  <Link onClick={onClose} to={'/profile'}>
+                    <Button
+                      _hover={{ backgroundColor: 'blackAlpha.300' }}
+                      leftIcon={<UserSquareIcon />}
+                      variant={'ghost'}
+                    >
+                      Profile
+                    </Button>
+                  </Link>
+                  {user && user.role === 'admin' && (
+                    <Link onClick={onClose} to="/admin/dashboard">
+                      <Button
+                        _hover={{ backgroundColor: 'blackAlpha.300' }}
+                        leftIcon={<Analytics02Icon />}
+                        variant={'ghost'}
+                      >
+                        Dashboard
+                      </Button>
+                    </Link>
+                  )}
+                </>
+              ) : null}
+              <Link onClick={onClose} to={'/notifications'}>
+                <Button
+                  _hover={{ backgroundColor: 'blackAlpha.300' }}
+                  leftIcon={<Notification03Icon />}
+                  variant={'ghost'}
+                >
+                  Notifications
+                </Button>
+              </Link>
+              {isAuthenticated ? (
+                <>
+                  <Button
+                    leftIcon={<LoginSquare01Icon />}
+                    bg={'transparent'}
+                    _hover={{ backgroundColor: 'blackAlpha.300' }}
+                    onClick={handleLogout}
+                  >
+                    Logout
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <Link onClick={onClose} to={'/login'}>
+                    {' '}
+                    <Button
+                    leftIcon={<LoginSquare01Icon />}
+                      bg={'transparent'}
+                      _hover={{ backgroundColor: 'blackAlpha.300' }}
+                    >
+                      Login
+                    </Button>
+                  </Link>
+                  <Link onClick={onClose} to={'/register'}>
+                    {' '}
+                    <Button
+                    leftIcon={<UserIdVerificationIcon />}
+                      bg={'transparent'}
+                      _hover={{ backgroundColor: 'blackAlpha.300' }}
+                    >
+                      Sign Up
+                    </Button>
+                  </Link>
+                </>
+              )}
+            </HStack>
+          </>
+        )}
+      </HStack>
+
       <Drawer placement="left" onClose={onClose} isOpen={isOpen}>
         <DrawerOverlay backdropFilter={'blur(2px)'} />
         <DrawerContent>
@@ -73,7 +150,12 @@ export default function Header() {
             SkillWave
           </DrawerHeader>
           <DrawerBody>
-            <VStack overflowY={'scroll'} spacing={'2'} alignItems={'flex-start'} height={'85%'}>
+            <VStack
+              overflowY={'scroll'}
+              spacing={'2'}
+              alignItems={'flex-start'}
+              height={'85%'}
+            >
               <Link onClick={onClose} to={'/'}>
                 <Button leftIcon={<Home01Icon />} variant={'ghost'}>
                   Home
@@ -82,14 +164,18 @@ export default function Header() {
 
               {isAuthenticated ? (
                 <>
-                <Link onClick={onClose} to={'/profile'}>
-                    <Button leftIcon={<UserSquareIcon />} variant={'ghost'}>Profile</Button>
+                  <Link onClick={onClose} to={'/profile'}>
+                    <Button leftIcon={<UserSquareIcon />} variant={'ghost'}>
+                      Profile
+                    </Button>
+                  </Link>
+                  {user && user.role === 'admin' && (
+                    <Link onClick={onClose} to="/admin/dashboard">
+                      <Button leftIcon={<Analytics02Icon />} variant={'ghost'}>
+                        Dashboard
+                      </Button>
                     </Link>
-                    {user && user.role === 'admin' && (
-                      <Link onClick={onClose} to="/admin/dashboard">
-                        <Button leftIcon={<Analytics02Icon/>} variant={'ghost'} >Dashboard</Button>
-                      </Link>
-                    )}
+                  )}
                 </>
               ) : null}
               <Link onClick={onClose} to={'/courses'}>
@@ -135,7 +221,7 @@ export default function Header() {
             </VStack>
 
             <HStack
-            bg={'white'}
+              bg={'white'}
               justifyContent={'space-evenly'}
               position={'absolute'}
               bottom={'2rem'}
@@ -143,8 +229,15 @@ export default function Header() {
             >
               {isAuthenticated ? (
                 <>
-                      <Button leftIcon={<LoginSquare01Icon />} variant={'outline'} width={'full'} colorScheme='teal' onClick={handleLogout}>
-                        Logout</Button>
+                  <Button
+                    leftIcon={<LoginSquare01Icon />}
+                    variant={'outline'}
+                    width={'full'}
+                    colorScheme="teal"
+                    onClick={handleLogout}
+                  >
+                    Logout
+                  </Button>
                 </>
               ) : (
                 <>
