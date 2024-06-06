@@ -60,7 +60,7 @@ export default function Header() {
         >
           <SidebarLeftIcon />
         </Button>
-        <Heading size={'lg'}>SkillWave</Heading>
+        <Link to={'/'}><Heading size={'lg'}>SkillWave</Heading></Link>
 
         {isDesktop && (
           <>

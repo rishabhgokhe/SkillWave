@@ -11,7 +11,7 @@ import {
   ModalContent,
   ModalHeader,
   ModalOverlay,
-  Stack,
+  // Stack,
   Table,
   TableCaption,
   TableContainer,
@@ -196,12 +196,12 @@ function CourseModalViewLectures({ isOpen, onClose }) {
 
 //-------------------------------------------------------------------------------------//
 
-function VideoCard() {
-  return <Stack>
-<Box>
-  <Heading>
-    
-  </Heading>
-</Box>
-  </Stack>
-}
+// function VideoCard() {
+//   return <Stack>
+// <Box>
+//   <Heading>
+
+//   </Heading>
+// </Box>
+//   </Stack>
+// }
