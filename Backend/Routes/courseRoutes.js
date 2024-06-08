@@ -1,7 +1,12 @@
 import express from 'express';
-import { getAllCourses } from '../Controllers/courseController';
+import {createCourse, getAllCourses} from '../Controllers/courseController.js';
 
-const router = express.Router();
-router.route('/courses').get(getAllCourses);
+const courseRoute = express.Router();
 
-export default router;
+//get courses without lectures
+courseRoute.route('/courses').get(getAllCourses);
+
+// create course for admin only
+courseRoute.route('/createcourse').post(createCourse);
+
+export default courseRoute;
