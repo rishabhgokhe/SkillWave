@@ -1,9 +1,11 @@
 import { Box, Grid, HStack, Heading, Progress, Stack, Text } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import Sidebar from '../Sidebar.jsx';
-import TradeDownIcon from '../../../assets/svg/TradeDownIcon.jsx';
-import TradeUpIcon from '../../../assets/svg/TradeUpIcon.jsx';
 import { DoughnutChart, LineChart } from './Chart.jsx';
+
+// icon import
+import TradeDownIcon from '../../../assets/svg/icons/TradeDownIcon.jsx';
+import TradeUpIcon from '../../../assets/svg/icons/TradeUpIcon.jsx';
 
 export default function Dashboard() {
   const originalTopText = `Last updated on ${String(new Date()).split('G')[0]}`;

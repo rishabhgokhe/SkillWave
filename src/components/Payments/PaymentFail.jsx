@@ -1,9 +1,13 @@
 import React from 'react';
 import { Container, VStack, Heading, Button } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
+
 import paymentFailed from '../../assets/svg/Animated/payment_failed.json';
-import { FaCircleArrowLeft } from 'react-icons/fa6';
 import Lottie from 'lottie-react';
+
+// icon import
+import { FaCircleArrowLeft } from 'react-icons/fa6';
+
 
 export default function PaymentFail() {
   return (

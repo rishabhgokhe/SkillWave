@@ -16,7 +16,9 @@ import {
 } from '@chakra-ui/react';
 import React from 'react';
 import Sidebar from '../Sidebar.jsx';
-import Delete02Icon from '../../../assets/svg/Delete02Icon.jsx';
+
+//icon import
+import Delete02Icon from '../../../assets/svg/icons/Delete02Icon.jsx';
 
 export default function Users() {
   const users = [

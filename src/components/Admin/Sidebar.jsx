@@ -1,13 +1,15 @@
 import { Button, VStack } from '@chakra-ui/react';
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import Analytics02Icon from '../../assets/svg/Analytics02Icon';
-import UserMultiple02Icon from '../../assets/svg/UserMultiple02Icon';
-import AddCircleHalfDotIcon from '../../assets/svg/AddCircleHalfDotIcon';
-import CourseIcon from '../../assets/svg/CourseIcon';
-import MoneyBag02Icon from '../../assets/svg/MoneyBag02Icon';
-import UserSquareIcon from '../../assets/svg/UserSquareIcon';
-import Settings04Icon from '../../assets/svg/Settings04Icon';
+
+// icon import
+import Analytics02Icon from '../../assets/svg/icons/Analytics02Icon';
+import UserMultiple02Icon from '../../assets/svg/icons/UserMultiple02Icon';
+import AddCircleHalfDotIcon from '../../assets/svg/icons/AddCircleHalfDotIcon';
+import CourseIcon from '../../assets/svg/icons/CourseIcon';
+import MoneyBag02Icon from '../../assets/svg/icons/MoneyBag02Icon';
+import UserSquareIcon from '../../assets/svg/icons/UserSquareIcon';
+import Settings04Icon from '../../assets/svg/icons/Settings04Icon';
 
 export default function Sidebar() {
   const location = useLocation();

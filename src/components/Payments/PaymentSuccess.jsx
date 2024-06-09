@@ -8,9 +8,10 @@ import {
   HStack,
 } from '@chakra-ui/react';
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import Lottie from 'lottie-react';
 import checkMark from '../../assets/svg/Animated/checkMark.json';
-import { Link } from 'react-router-dom';
 
 export default function PaymentSuccess() {
   return (

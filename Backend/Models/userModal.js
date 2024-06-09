@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
 import validator from "validator";
+import jwt from 'jsonwebtoken';
+import bcrypt from 'bcrypt';
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -14,7 +16,7 @@ const userSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-        enum: ["admin", "user"],
+        // enum: ["admin", "user"],
         minLength: [10, 'Password must be atleast 10 Characters'],
         select: false
     },
@@ -53,6 +55,25 @@ const userSchema = new mongoose.Schema({
     ResetPasswordToken: String,
     ResetPasswordExpire: String
 })
+
+
+userSchema.pre("save", async function(next) {
+    // checks if password is not modified then dont hash it again
+    if (!this.isModified("password")) return next();
+    const hashedPassword = await bcrypt.hash(this.password, 10);
+    // saves the hashed password
+    this.password = hashedPassword;
+})
+
+userSchema.methods.getJWTToken = function () {
+    return jwt.sign({_id: this._id},process.env.JWT_SECRET, {
+        expiresIn: "15d"
+    });
+};
+
+userSchema.methods.comparePassword = async function (password) {
+    return await bcrypt.compare(password, this.password)
+};
 
 const User = mongoose.model("User", userSchema);
 

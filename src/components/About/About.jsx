@@ -14,7 +14,9 @@ import {
 import React from 'react';
 import { Link } from 'react-router-dom';
 import TermsAndCondition from '../../assets/docs/TermsAndCondition';
-import MailOpenIcon from '../../assets/svg/MailOpenIcon';
+
+// icon import
+import MailOpenIcon from '../../assets/svg/icons/MailOpenIcon';
 
 const TandC = ({ termsAndCondition }) => {
   return (

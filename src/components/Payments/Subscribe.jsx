@@ -10,8 +10,10 @@ import {
   VStack,
 } from '@chakra-ui/react';
 import React from 'react';
+
+// icon import
 import { MdVerified as CheckIcon } from 'react-icons/md';
-import CircleArrowRight02Icon from '../../assets/svg/CircleArrowRight02Icon'
+import CircleArrowRight02Icon from '../../assets/svg/icons/CircleArrowRight02Icon'
 
 export default function Subscribe() {
   return (

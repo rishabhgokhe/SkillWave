@@ -1,13 +1,16 @@
 import React from 'react';
 import { Container, VStack, Heading, Button } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
+
 import error404_1 from '../assets/svg/Animated/error404_1.json'
 import error404_2 from '../assets/svg/Animated/error404_2.json'
 import error404_3 from '../assets/svg/Animated/error404_3.json'
 import error404_4 from '../assets/svg/Animated/error404_4.json'
 import error404_5 from '../assets/svg/Animated/error404_5.json'
 import Lottie from 'lottie-react';
-import Home04Icon from '../assets/svg/Home04Icon';
+
+// icon import
+import Home04Icon from '../assets/svg/icons/Home04Icon';
 
 const svg_arr = [error404_1, error404_2, error404_3, error404_4, error404_5 ]
 

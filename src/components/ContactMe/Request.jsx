@@ -1,7 +1,9 @@
 import { Container, FormLabel, Heading, VStack, Box, Input, Button, Textarea } from "@chakra-ui/react"
 import React, { useState } from 'react'
 import { Link } from "react-router-dom";
-import MailSend01Icon from "../../assets/svg/MailSend01Icon";
+
+// icon import
+import MailSend01Icon from "../../assets/svg/icons/MailSend01Icon";
 
 
 export default function Request() {

@@ -1,9 +1,12 @@
 import { Box, Container, FormLabel, Heading, Input, VStack, Button, Stack, Divider } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { SlEnvolopeLetter } from "react-icons/sl";
+
 import newLetter from '../../assets/svg/Animated/newsLetter.json'
 import Lottie from 'lottie-react';
+
+// icon import
+import { SlEnvolopeLetter } from "react-icons/sl";
 import { RiLeafFill } from "react-icons/ri";
 import { SiMailchimp } from "react-icons/si";
 

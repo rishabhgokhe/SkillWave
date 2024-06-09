@@ -9,8 +9,10 @@ import {
 } from '@chakra-ui/react';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ShoppingCartCheckIn01Icon from '../../assets/svg/ShoppingCartCheckIn01Icon';
-import InformationDiamondIcon from '../../assets/svg/InformationDiamondIcon';
+
+// icon import
+import ShoppingCartCheckIn01Icon from '../../assets/svg/icons/ShoppingCartCheckIn01Icon';
+import InformationDiamondIcon from '../../assets/svg/icons/InformationDiamondIcon';
 
 export default function CourseCard({
   title,

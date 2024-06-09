@@ -1,14 +1,13 @@
 import { Box, HStack, Heading, VStack, Button } from '@chakra-ui/react';
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import { VscGithub } from "react-icons/vsc";
+
+// icon import
 import { FaInstagram } from 'react-icons/fa6';
-// import { FaXTwitter } from "react-icons/fa6";
-// import { BsLinkedin } from "react-icons/bs";
-import NewTwitterRectangleIcon from '../../../assets/svg/NewTwitterRectangleIcon';
-import Linkedin01Icon from '../../../assets/svg/Linkedin01Icon';
-import GithubIcon from '../../../assets/svg/GithubIcon';
-import MailAdd02Icon from '../../../assets/svg/MailAdd02Icon';
+import NewTwitterRectangleIcon from '../../../assets/svg/icons/NewTwitterRectangleIcon';
+import Linkedin01Icon from '../../../assets/svg/icons/Linkedin01Icon';
+import GithubIcon from '../../../assets/svg/icons/GithubIcon';
+import MailAdd02Icon from '../../../assets/svg/icons/MailAdd02Icon';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();

@@ -26,10 +26,12 @@ import {
 } from '@chakra-ui/react';
 import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+
+// icon import
 import { MdBookmarkRemove } from 'react-icons/md';
-import UserAdd01Icon from '../../assets/svg/UserAdd01Icon';
-import PasswordValidationIcon from '../../assets/svg/PasswordValidationIcon';
-import ImageUploadIcon from '../../assets/svg/ImageUploadIcon';
+import UserAdd01Icon from '../../assets/svg/icons/UserAdd01Icon';
+import PasswordValidationIcon from '../../assets/svg/icons/PasswordValidationIcon';
+import ImageUploadIcon from '../../assets/svg/icons/ImageUploadIcon';
 
 export default function Profile() {
   const user = {
@@ -81,9 +83,7 @@ export default function Profile() {
     console.log(id);
   };
 
-  const changeImageSubmitHandler = (e, image) => {
-
-  };
+  const changeImageSubmitHandler = (e, image) => {};
 
   return (
     <Container minH="85vh" maxW="container.lg">
@@ -97,7 +97,13 @@ export default function Profile() {
       >
         <VStack m={['4', '5']}>
           <Avatar boxSize="150px" />
-          <Button rightIcon={<ImageUploadIcon />} onClick={onOpen} mt="2" colorScheme="teal" variant="outline">
+          <Button
+            rightIcon={<ImageUploadIcon />}
+            onClick={onOpen}
+            mt="2"
+            colorScheme="teal"
+            variant="outline"
+          >
             Change Photo
           </Button>
         </VStack>
@@ -144,7 +150,9 @@ export default function Profile() {
               <Button leftIcon={<UserAdd01Icon />}>Update Profile</Button>
             </Link>
             <Link to="/changepassword">
-              <Button leftIcon={<PasswordValidationIcon />}>Change Password</Button>
+              <Button leftIcon={<PasswordValidationIcon />}>
+                Change Password
+              </Button>
             </Link>
           </Stack>
         </VStack>
@@ -203,7 +211,11 @@ export default function Profile() {
         </Stack>
       )}
 
-      <ChangePhotoPopup isOpen={isOpen} onClose={onClose} changeImageSubmitHandler={changeImageSubmitHandler} />
+      <ChangePhotoPopup
+        isOpen={isOpen}
+        onClose={onClose}
+        changeImageSubmitHandler={changeImageSubmitHandler}
+      />
     </Container>
   );
 }
@@ -241,51 +253,60 @@ function Popup({ header, body, isOpen, onClose, cancelRef, handlerFunction }) {
   );
 }
 
-export function ChangePhotoPopup({isOpen, onClose}) {
-
+export function ChangePhotoPopup({ isOpen, onClose }) {
   const [avatar, setAvatar] = useState();
 
   const changeImageSubmitHandler = (e, image) => {
     e.preventDefault();
   };
 
-function closeHandler() {
-  onClose();
-  setAvatar('');
-}
+  function closeHandler() {
+    onClose();
+    setAvatar('');
+  }
 
   function changeImageHandler(e) {
     const file = e.target.files[0];
     const reader = new FileReader();
 
     reader.readAsDataURL(file);
-     reader.onloadend = () => {
-        setAvatar(reader.result)
-        // setImage(file);
-    }
+    reader.onloadend = () => {
+      setAvatar(reader.result);
+      // setImage(file);
+    };
   }
 
   return (
-    <Modal
-    isCentered
-    isOpen={isOpen} onClose={closeHandler} >
+    <Modal isCentered isOpen={isOpen} onClose={closeHandler}>
       <ModalOverlay backdropFilter={'blur(2px)'}></ModalOverlay>
       <ModalContent>
         <ModalHeader>Upload Image</ModalHeader>
         <ModalCloseButton />
         <ModalBody>
           <Container>
-            <form onSubmit={(e) => changeImageSubmitHandler(e, avatar)} >
+            <form onSubmit={e => changeImageSubmitHandler(e, avatar)}>
               <VStack>
-                {avatar && <Avatar mb='3' src={avatar} boxSize='150px' />}
-                <Input onChange={changeImageHandler} type='file' className='sign-up-upload-avatar'></Input>
-                <Button rightIcon={<ImageUploadIcon />} w={'full'} type='submit'>Change</Button>
+                {avatar && <Avatar mb="3" src={avatar} boxSize="150px" />}
+                <Input
+                  onChange={changeImageHandler}
+                  type="file"
+                  className="sign-up-upload-avatar"
+                ></Input>
+                <Button
+                  rightIcon={<ImageUploadIcon />}
+                  w={'full'}
+                  type="submit"
+                >
+                  Change
+                </Button>
               </VStack>
             </form>
           </Container>
         </ModalBody>
         <ModalFooter>
-          <Button colorScheme='red' onClick={closeHandler} >Cancel</Button>
+          <Button colorScheme="red" onClick={closeHandler}>
+            Cancel
+          </Button>
         </ModalFooter>
       </ModalContent>
     </Modal>

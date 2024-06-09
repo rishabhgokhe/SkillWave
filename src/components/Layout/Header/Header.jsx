@@ -15,21 +15,22 @@ import {
   useDisclosure,
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
-//----------------icon import ---------------------//
-import Home01Icon from '../../../assets/svg/Home01Icon.jsx';
-import CourseIcon from '../../../assets/svg/CourseIcon.jsx';
-import AudioBook01Icon from '../../../assets/svg/AudioBook01Icon.jsx';
-import Award05Icon from '../../../assets/svg/Award05Icon.jsx';
-import NoteEditIcon from '../../../assets/svg/NoteEditIcon.jsx';
-import Notification03Icon from '../../../assets/svg/Notification03Icon.jsx';
-import InformationCircleIcon from '../../../assets/svg/InformationCircleIcon.jsx';
-import MailUpload01Icon from '../../../assets/svg/MailUpload01Icon.jsx';
-import Settings02Icon from '../../../assets/svg/Settings02Icon.jsx';
-import UserSquareIcon from '../../../assets/svg/UserSquareIcon.jsx';
-import Analytics02Icon from '../../../assets/svg/Analytics02Icon.jsx';
-import LoginSquare01Icon from '../../../assets/svg/LoginSquare01Icon.jsx';
-import SidebarLeftIcon from '../../../assets/svg/SidebarLeftIcon.jsx';
-import UserIdVerificationIcon from '../../../assets/svg/UserIdVerificationIcon.jsx';
+
+// icon import
+import Home01Icon from '../../../assets/svg/icons/Home01Icon.jsx';
+import CourseIcon from '../../../assets/svg/icons/CourseIcon.jsx';
+import AudioBook01Icon from '../../../assets/svg/icons/AudioBook01Icon.jsx';
+import Award05Icon from '../../../assets/svg/icons/Award05Icon.jsx';
+import NoteEditIcon from '../../../assets/svg/icons/NoteEditIcon.jsx';
+import Notification03Icon from '../../../assets/svg/icons/Notification03Icon.jsx';
+import InformationCircleIcon from '../../../assets/svg/icons/InformationCircleIcon.jsx';
+import MailUpload01Icon from '../../../assets/svg/icons/MailUpload01Icon.jsx';
+import Settings02Icon from '../../../assets/svg/icons/Settings02Icon.jsx';
+import UserSquareIcon from '../../../assets/svg/icons/UserSquareIcon.jsx';
+import Analytics02Icon from '../../../assets/svg/icons/Analytics02Icon.jsx';
+import LoginSquare01Icon from '../../../assets/svg/icons/LoginSquare01Icon.jsx';
+import SidebarLeftIcon from '../../../assets/svg/icons/SidebarLeftIcon.jsx';
+import UserIdVerificationIcon from '../../../assets/svg/icons/UserIdVerificationIcon.jsx';
 
 export default function Header() {
   const isDesktop = useBreakpointValue({ base: false, md: true });

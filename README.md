@@ -10,7 +10,7 @@ SkillWave is an innovative online platform dedicated to empowering learners worl
 - **Backend:** Node.js, Express.js
 
 ## Currently Working on Feature (User Authentication)
-I am currently working on user authentcation login and register page.
+I am currently working on Backend APIs.
 
 ## ⚙︎ Setup Instructions
 

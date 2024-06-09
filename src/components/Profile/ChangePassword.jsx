@@ -1,5 +1,6 @@
 import { Button, Container, HStack, Heading, Input, VStack } from '@chakra-ui/react'
 import React, { useState } from 'react'
+
 import LockSvg from '../../assets/svg/Animated/lock.json'
 import Lottie from 'lottie-react';
 

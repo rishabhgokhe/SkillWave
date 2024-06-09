@@ -24,7 +24,9 @@ import {
 } from '@chakra-ui/react';
 import React from 'react';
 import Sidebar from '../Sidebar.jsx';
-import Delete02Icon from '../../../assets/svg/Delete02Icon.jsx';
+
+// icon import
+import Delete02Icon from '../../../assets/svg/icons/Delete02Icon.jsx';
 
 export default function AdminCourses() {
   const courses = [
@@ -132,7 +134,6 @@ export default function AdminCourses() {
 }
 
 //-------------------------------------------------------------------------------------//
-
 function TableRow({ data, updateLectureHandler, deleteUserHandler }) {
   return (
     <Tr>
@@ -164,9 +165,7 @@ function TableRow({ data, updateLectureHandler, deleteUserHandler }) {
 }
 
 //-------------------------------------------------------------------------------------//
-
 function CourseModalViewLectures({ isOpen, onClose }) {
-
   const courseTitle = 'Python Course';
   const id = 2;
   return (
@@ -176,17 +175,17 @@ function CourseModalViewLectures({ isOpen, onClose }) {
         <ModalHeader>{courseTitle}</ModalHeader>
         <ModalCloseButton />
         <ModalBody>
-          <Grid templateColumns={['1fr', '3fr 1fr']} >
-<Box>
-  <Box>
-    <Heading>{courseTitle}</Heading>
-    <Heading size={'sm'} opacity={0.5} >{id}</Heading>
-  </Box>
+          <Grid templateColumns={['1fr', '3fr 1fr']}>
+            <Box>
+              <Box>
+                <Heading>{courseTitle}</Heading>
+                <Heading size={'sm'} opacity={0.5}>
+                  {id}
+                </Heading>
+              </Box>
 
-  <Heading>Lectures</Heading>
-</Box>
-
-
+              <Heading>Lectures</Heading>
+            </Box>
           </Grid>
         </ModalBody>
       </ModalContent>
