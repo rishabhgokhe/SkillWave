@@ -65,7 +65,7 @@ export default function ExploreCoursesHome() {
         </Box>
 
         <CategoryBox link={'development'} animatedSvg={developmentSvg} title={'Development'} description={"Learn Industry leading skills in development such as Web dev, iOS dev etc"} />
-        <CategoryBox link={'bussiness'} animatedSvg={bussinessSvg} title={'Bussiness'} description={'Enterpreneurship, Communication, Managment, Sales, Business Strategy etc'} />
+        <CategoryBox link={'bussiness'} animatedSvg={bussinessSvg} title={'Bussiness'} description={'Enterpreneurship, Communication, Managment, Sales, Business Strategy'} />
         <CategoryBox link={'design'} animatedSvg={graphicDesignSvg} title={'Design'} description={'Web Design, Graphic Design & Illustrations, Design Tools, UI/UX, Game Design, 3D & Animations'} />
         <CategoryBox link={'fitness'} animatedSvg={fitnessSvg} title={'Fitness'} description={'Fitness, General Health, Sports, Nutrition & Diet, Yoga, Mental Health'} />
         <CategoryBox link={'music'} animatedSvg={musicSvg} title={'Music'} description={'Instruments, Music Production, Music Fundamental, Vocals, Music Technique, Music Software'} />

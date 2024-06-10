@@ -2,6 +2,8 @@ import catchAsyncError from '../Middlewares/catchAsyncError.js';
 import ErrorHandler from '../Utils/ErrorHandler.js';
 import User from '../Models/userModal.js';
 import sendToken from '../Utils/sendToken.js';
+import { sendEmail } from '../Utils/sendEmail.js';
+import crypto from 'crypto';
 
 export function getAllUsers(req, res, next) {
   res.send('running');
@@ -104,20 +106,18 @@ export const changePassword = catchAsyncError(async (req, res, next) => {
   user.password = newPassword;
   user.save();
 
-
   res.status(200).json({
     success: true,
-    message: "password changes successfully"
+    message: 'password changes successfully',
   });
 });
-
 
 //-------------------------------------------------------------------------------------//
 export const updateProfile = catchAsyncError(async (req, res, next) => {
   const { name, email } = req.body;
 
   const user = await User.findById(req.user._id);
-  console.log(user.name);
+// upadate name or email in your profile
   if (name) user.name = name;
   if (email) user.email = email;
 
@@ -125,6 +125,57 @@ export const updateProfile = catchAsyncError(async (req, res, next) => {
 
   res.status(200).json({
     success: true,
-    message: "Profile updated successfully"
+    message: 'Profile updated successfully',
+  });
+});
+
+//-------------------------------------------------------------------------------------//
+export const forgetPassword = catchAsyncError(async (req, res, next) => {
+  const { email } = req.body;
+
+  const user = await User.findOne({ email });
+  if (!user)
+    return next(new ErrorHandler('User dosent exist with this email', 400));
+
+  const resetToken = await user.getResetToken();
+
+  await user.save();
+
+  const url = `${process.env.WEBSITE_URL}/resetpassword/${resetToken}`;
+
+  const message = `Click on the link to reset password ${url} If you have not requested then report this mail.`;
+  await sendEmail(user.email, 'SkillWave: Reset Password', message, res);
+
+  res.status(200).json({
+    success: true,
+    message: `Reset token sent to ${email}`,
+  });
+});
+
+//-------------------------------------------------------------------------------------//
+export const resetPassword = catchAsyncError(async (req, res, next) => {
+
+  const {token} = req.params;
+
+  const resetPasswordToken = crypto.createHash('sha256').update(token).digest('hex');
+
+  const user =  await User.findOne({
+    resetPasswordToken,
+    resetPasswordExpire: {
+      $gt: Date.now()
+    }
+  })
+
+  if (!user) next(new ErrorHandler("Invalid or Expired Token", 404));
+
+  user.password = req.body.password;
+  user.resetPasswordToken = undefined;
+  user.resetPasswordExpire = undefined;
+
+  await user.save();
+
+  res.status(200).json({
+    success: true,
+    message: 'Password Updated Successfully',
   });
 });

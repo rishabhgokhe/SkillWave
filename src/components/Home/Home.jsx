@@ -25,10 +25,6 @@ import GiphySvg from '../../assets/svg/giphy_icon.svg';
 import InstaCartSvg from '../../assets/svg/instacart_icon.svg';
 import BinanceSvg from '../../assets/svg/binance_icon.svg';
 
-
-
-
-
 // icon  import
 import { BsPersonLinesFill } from 'react-icons/bs';
 import SearchVisualIcon from '../../assets/svg/icons/SearchVisualIcon.jsx';
