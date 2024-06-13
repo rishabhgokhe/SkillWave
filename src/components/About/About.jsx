@@ -1,6 +1,5 @@
 import {
   Avatar,
-  Box,
   Button,
   Container,
   Divider,
@@ -13,30 +12,11 @@ import {
 } from '@chakra-ui/react';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import TermsAndCondition from '../../assets/docs/TermsAndCondition';
+import termsAndCondition from '../../assets/docs/TermsAndCondition';
+import TAndC from '../ui/TermsAndConditions';
 
 // icon import
 import MailOpenIcon from '../../assets/svg/icons/MailOpenIcon';
-
-const TandC = ({ termsAndCondition }) => {
-  return (
-    <Box marginY={'4'}>
-      <Heading size="md" textAlign={['center', 'left']} marginY={'3'}>
-        Terms and Condition
-      </Heading>
-      <Box h='200' p="2" overflowY={'scroll'}>
-        <Text letterSpacing={'widest'} textAlign={['center', 'left']}>
-          {termsAndCondition}
-        </Text>
-        <Heading
-          paddingY={'3'}
-          size={'xs'}
-          children="30 days Moneyback Guarentee"
-        />
-      </Box>
-    </Box>
-  );
-};
 
 export default function About() {
   return (
@@ -113,7 +93,7 @@ export default function About() {
         </UnorderedList>
       </Stack>
 <Divider borderWidth={2} />
-      <TandC termsAndCondition={TermsAndCondition} />
+      <TAndC termsAndCondition={termsAndCondition} /> 
       {/* <Box>
         <Heading>payments</Heading>
       </Box> */}

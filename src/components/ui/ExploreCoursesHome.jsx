@@ -7,23 +7,31 @@ import {
   Text,
   VStack,
   Heading,
+  useBreakpointValue,
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 
 // icons import
 import StarsIcon from '../../assets/svg/icons/StarsIcon.jsx';
 import CircleArrowRight02Icon from '../../assets/svg/icons/CircleArrowRight02Icon.jsx';
-import CircleArrowRight01Icon from '../../assets/svg/icons/CircleArrowRight01Icon.jsx'
+import CircleArrowRight01Icon from '../../assets/svg/icons/CircleArrowRight01Icon.jsx';
 
 // animated svg import
 import developmentSvg from '../../assets/svg/Animated/development.json';
-import bussinessSvg from '../../assets/svg/Animated/businesss.json'
-import graphicDesignSvg from '../../assets/svg/Animated/graphicDesign.json'
-import musicSvg from '../../assets/svg/Animated/music.json'
-import fitnessSvg from '../../assets/svg/Animated/fitness.json'
+import bussinessSvg from '../../assets/svg/Animated/businesss.json';
+import graphicDesignSvg from '../../assets/svg/Animated/graphicDesign.json';
+import musicSvg from '../../assets/svg/Animated/music.json';
+import fitnessSvg from '../../assets/svg/Animated/fitness.json';
 import Lottie from 'lottie-react';
 
 export default function ExploreCoursesHome() {
+  const isiPad = useBreakpointValue({
+    base: false,
+    lg: true,
+    md: true,
+    sm: true,
+  });
+
   return (
     <Box>
       <Button
@@ -36,8 +44,18 @@ export default function ExploreCoursesHome() {
         <b>Course Details</b>
       </Button>
 
-      <Stack direction={['column', 'row']} m={4} mt={0}>
-        <Box minW={'200px'} padding={4}>
+      <Stack
+        direction={['column', 'row']}
+        m={4}
+        mt={0}
+        overflowX={'scroll'}
+        sx={{
+          '::-webkit-scrollbar': {
+            display: 'none',
+          },
+        }}
+      >
+        <Box minW={isiPad ? 400 : 200} padding={4}>
           <VStack>
             <Heading>
               Explore our <span style={{ color: '#FFC759' }}>Categories</span>
@@ -64,26 +82,80 @@ export default function ExploreCoursesHome() {
           </VStack>
         </Box>
 
-        <CategoryBox link={'development'} animatedSvg={developmentSvg} title={'Development'} description={"Learn Industry leading skills in development such as Web dev, iOS dev etc"} />
-        <CategoryBox link={'bussiness'} animatedSvg={bussinessSvg} title={'Bussiness'} description={'Enterpreneurship, Communication, Managment, Sales, Business Strategy'} />
-        <CategoryBox link={'design'} animatedSvg={graphicDesignSvg} title={'Design'} description={'Web Design, Graphic Design & Illustrations, Design Tools, UI/UX, Game Design, 3D & Animations'} />
-        <CategoryBox link={'fitness'} animatedSvg={fitnessSvg} title={'Fitness'} description={'Fitness, General Health, Sports, Nutrition & Diet, Yoga, Mental Health'} />
-        <CategoryBox link={'music'} animatedSvg={musicSvg} title={'Music'} description={'Instruments, Music Production, Music Fundamental, Vocals, Music Technique, Music Software'} />
+        <CategoryBox
+          link={'development'}
+          animatedSvg={developmentSvg}
+          title={'Development'}
+          description={
+            'Learn Industry leading skills in development such as Web dev, iOS dev etc'
+          }
+        />
+        <CategoryBox
+          link={'bussiness'}
+          animatedSvg={bussinessSvg}
+          title={'Bussiness'}
+          description={
+            'Enterpreneurship, Communication, Managment, Sales, Business Strategy'
+          }
+        />
+        <CategoryBox
+          link={'design'}
+          animatedSvg={graphicDesignSvg}
+          title={'Design'}
+          description={
+            'Web Design, Graphic Design & Illustrations, Design Tools, UI/UX, Game Design, 3D & Animations'
+          }
+        />
+        <CategoryBox
+          link={'fitness'}
+          animatedSvg={fitnessSvg}
+          title={'Fitness'}
+          description={
+            'Fitness, General Health, Sports, Nutrition & Diet, Yoga, Mental Health'
+          }
+        />
+        <CategoryBox
+          link={'music'}
+          animatedSvg={musicSvg}
+          title={'Music'}
+          description={
+            'Instruments, Music Production, Music Fundamental, Vocals, Music Technique, Music Software'
+          }
+        />
       </Stack>
     </Box>
   );
 }
 
-function CategoryBox({animatedSvg, title, description, link}) {
+function CategoryBox({ animatedSvg, title, description, link }) {
   return (
-    <Box position={'relative'} bg={'rgba(242,222,186,0.6)'} minW={'200px'} borderRadius={10} p={4} boxShadow={'lg'} _hover={{bg: 'rgba(242,222,186)'}} transition={'all 0.3s ease'}>
-      <VStack >
+    <Box
+      position={'relative'}
+      bg={'rgba(242,222,186,0.6)'}
+      minW={'200px'}
+      borderRadius={10}
+      p={4}
+      boxShadow={'lg'}
+      _hover={{ bg: 'rgba(242,222,186)' }}
+      transition={'all 0.3s ease'}
+    >
+      <VStack>
         <div style={{ width: 180, height: 180 }}>
           <Lottie animationData={animatedSvg} />
         </div>
         <Heading size={'xs'}>{title}</Heading>
         <Text>{description}</Text>
-        <Link to={`/courses/:${link}`} ><Button _hover={'none'} position={'absolute'} bottom={3} right={3} bg={'transparent'} ><CircleArrowRight01Icon /></Button></Link> 
+        <Link to={`/courses/:${link}`}>
+          <Button
+            _hover={'none'}
+            position={'absolute'}
+            bottom={3}
+            right={3}
+            bg={'transparent'}
+          >
+            <CircleArrowRight01Icon />
+          </Button>
+        </Link>
       </VStack>
     </Box>
   );

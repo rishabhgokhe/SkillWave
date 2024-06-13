@@ -22,7 +22,7 @@ const Feature = ({ title, text, icon }) => {
   );
 };
 
-export default function SimpleThreeColumns() {
+export default function FeatureSection() {
   return (
     <Box p={6}>
         <Divider mb={4} />

@@ -11,8 +11,8 @@ import {
 import { Link } from 'react-router-dom';
 import './home.scss';
 import Scroll from '../ui/Infinite_scroll';
-import WithSpeechBubbles from '../ui/Testimonial.jsx';
-import SimpleThreeColumns from '../ui/features.jsx';
+import TestimonialContent from '../ui/Testimonial.jsx';
+import FeatureSection from '../ui/features.jsx';
 import ExploreCoursesHome from '../ui/ExploreCoursesHome.jsx';
 import { FlipWords } from '../ui/flip_text.jsx';
 
@@ -33,7 +33,7 @@ import CircleArrowUpRight02Icon from '../../assets/svg/icons/CircleArrowUpRight0
 export default function Home() {
   return (
     <>
-      <Box p={'10'}>
+      <Box p={'10'} className='block'>
         <VStack width={'full'} alignItems={'center'}>
           <Stack direction={['column', 'row']}>
             <Heading
@@ -107,8 +107,8 @@ export default function Home() {
       </Box>
 
       <ExploreCoursesHome />
-      <SimpleThreeColumns />
-      <WithSpeechBubbles />
+      <FeatureSection />
+      <TestimonialContent />
 
       <Box padding={'5'} backgroundColor={'#E8E9ED'}>
         <Heading

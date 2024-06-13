@@ -4,6 +4,7 @@ import User from '../Models/userModal.js';
 import sendToken from '../Utils/sendToken.js';
 import { sendEmail } from '../Utils/sendEmail.js';
 import crypto from 'crypto';
+import Course from '../Models/courseModal.js';
 
 export function getAllUsers(req, res, next) {
   res.send('running');
@@ -117,7 +118,7 @@ export const updateProfile = catchAsyncError(async (req, res, next) => {
   const { name, email } = req.body;
 
   const user = await User.findById(req.user._id);
-// upadate name or email in your profile
+  // upadate name or email in your profile
   if (name) user.name = name;
   if (email) user.email = email;
 
@@ -126,6 +127,17 @@ export const updateProfile = catchAsyncError(async (req, res, next) => {
   res.status(200).json({
     success: true,
     message: 'Profile updated successfully',
+  });
+});
+
+//-------------------------------------------------------------------------------------//
+export const updateProfilePicture = catchAsyncError(async (req, res, next) => {
+  // upload to cloudinary
+  // const file = req.file;
+
+  res.status(200).json({
+    success: true,
+    message: 'Profile Picture updated successfully',
   });
 });
 
@@ -154,19 +166,21 @@ export const forgetPassword = catchAsyncError(async (req, res, next) => {
 
 //-------------------------------------------------------------------------------------//
 export const resetPassword = catchAsyncError(async (req, res, next) => {
+  const { token } = req.params;
 
-  const {token} = req.params;
+  const resetPasswordToken = crypto
+    .createHash('sha256')
+    .update(token)
+    .digest('hex');
 
-  const resetPasswordToken = crypto.createHash('sha256').update(token).digest('hex');
-
-  const user =  await User.findOne({
+  const user = await User.findOne({
     resetPasswordToken,
     resetPasswordExpire: {
-      $gt: Date.now()
-    }
-  })
+      $gt: Date.now(),
+    },
+  });
 
-  if (!user) next(new ErrorHandler("Invalid or Expired Token", 404));
+  if (!user) next(new ErrorHandler('Invalid or Expired Token', 404));
 
   user.password = req.body.password;
   user.resetPasswordToken = undefined;
@@ -177,5 +191,55 @@ export const resetPassword = catchAsyncError(async (req, res, next) => {
   res.status(200).json({
     success: true,
     message: 'Password Updated Successfully',
+  });
+});
+
+//-------------------------------------------------------------------------------------//
+export const addToPlaylist = catchAsyncError(async (req, res, next) => {
+  // here we can get user info as in route we used isAuthenticated with addToPlaylist and when authenticating user with cookies we generated jwt token with _id and in decoding the cookie we can get hold of user _id (for more details see auth.js)
+  const user = await User.findById(req.user._id);
+
+  const course = await Course.findById(req.body.id);
+
+  if (!course) return next(new ErrorHandler('Course not found', 404));
+
+  const courseExists = user.playlist.find((item) => {
+    if (item.course.toString() === course._id.toString()) return true;
+  });
+
+  if (courseExists)
+    return next(new ErrorHandler('Course Already added to playlist', 409));
+
+  user.playlist.push({
+    course: course._id,
+    poster: course.poster.url,
+  });
+
+  await user.save();
+
+  res.status(200).json({
+    success: true,
+    message: 'Course Added to Playlist',
+  });
+});
+
+//-------------------------------------------------------------------------------------//
+export const removeFromPlaylist = catchAsyncError(async (req, res, next) => {
+  const user = await User.findById(req.user._id);
+
+  const course = await Course.findById(req.query.id);
+
+  if (!course) return next(new ErrorHandler('Course not found', 404));
+
+  const newPlaylist = user.playlist.filter((item) => {
+    if (item.course.toString() !== course._id.toString()) return item;
+  })
+
+  user.playlist = newPlaylist;
+  await user.save();
+
+  res.status(200).json({
+    success: true,
+    message: 'Course Removed from Playlist',
   });
 });

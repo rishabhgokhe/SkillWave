@@ -15,6 +15,7 @@ import {
   useDisclosure,
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
+import { css, keyframes } from '@emotion/react';
 
 // icon import
 import Home01Icon from '../../../assets/svg/icons/Home01Icon.jsx';
@@ -31,6 +32,7 @@ import Analytics02Icon from '../../../assets/svg/icons/Analytics02Icon.jsx';
 import LoginSquare01Icon from '../../../assets/svg/icons/LoginSquare01Icon.jsx';
 import SidebarLeftIcon from '../../../assets/svg/icons/SidebarLeftIcon.jsx';
 import UserIdVerificationIcon from '../../../assets/svg/icons/UserIdVerificationIcon.jsx';
+import AccountSetting03Icon from '../../../assets/svg/icons/AccountSetting03Icon.jsx';
 
 export default function Header() {
   const isDesktop = useBreakpointValue({ base: false, md: true });
@@ -45,9 +47,21 @@ export default function Header() {
     onClose();
   }
 
+  const movingBackground = keyframes`
+  0% {
+    background-position: 0% 20%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+`;
+
   return (
     <>
-      <HStack className="nav-bar">
+      <HStack className="nav-bar" position={'relative'}>
         {/* <ColorModeSwitcher /> */}
         <Button
           padding={'0'}
@@ -57,15 +71,18 @@ export default function Header() {
           width={'12'}
           height={'12'}
           rounded={'15'}
-          _hover={{ background: 'blackAlpha.300' }}
+          _hover={{ backgroundColor: 'blackAlpha.300' }}
         >
           <SidebarLeftIcon />
         </Button>
-        <Link to={'/'}><Heading size={'lg'}>SkillWave</Heading></Link>
+        <Link to={'/'}>
+          <Heading size={'lg'}>SkillWave</Heading>
+        </Link>
 
         {isDesktop && (
           <>
             <HStack justifyContent={'flex-end'}>
+              {/* if isAuthenticated true then it will display profile and dashboard */}
               {isAuthenticated ? (
                 <>
                   <Link onClick={onClose} to={'/profile'}>
@@ -90,6 +107,8 @@ export default function Header() {
                   )}
                 </>
               ) : null}
+
+              {/* Notification is always displayed in the header weather isAuthenticated is true or false */}
               <Link onClick={onClose} to={'/notifications'}>
                 <Button
                   _hover={{ backgroundColor: 'blackAlpha.300' }}
@@ -99,6 +118,7 @@ export default function Header() {
                   Notifications
                 </Button>
               </Link>
+              {/* if isAuthenticated true then it will display Logout otherwise login and signup */}
               {isAuthenticated ? (
                 <>
                   <Button
@@ -115,7 +135,7 @@ export default function Header() {
                   <Link onClick={onClose} to={'/login'}>
                     {' '}
                     <Button
-                    leftIcon={<LoginSquare01Icon />}
+                      leftIcon={<LoginSquare01Icon />}
                       bg={'transparent'}
                       _hover={{ backgroundColor: 'blackAlpha.300' }}
                     >
@@ -125,7 +145,7 @@ export default function Header() {
                   <Link onClick={onClose} to={'/register'}>
                     {' '}
                     <Button
-                    leftIcon={<UserIdVerificationIcon />}
+                      leftIcon={<UserIdVerificationIcon />}
                       bg={'transparent'}
                       _hover={{ backgroundColor: 'blackAlpha.300' }}
                     >
@@ -137,6 +157,29 @@ export default function Header() {
             </HStack>
           </>
         )}
+
+        <Link to={'https://rishabhgokhe.github.io/my_profile/'}>
+          <Button
+          size={'sm'}
+            leftIcon={<AccountSetting03Icon />}
+            position={'absolute'}
+            top={'4'}
+            right={'3'}
+            variant={'outline'}
+            css={css`
+              background-image: linear-gradient(45deg, #ffafbd, #ffc3a0);
+              color: white;
+              animation: ${movingBackground} 2s linear infinite;
+              &:hover {
+                background: blackAlpha.300;
+              }
+                color: black;
+            `}
+            borderRadius={'20'}
+          >
+            My Portfolio
+          </Button>
+        </Link>
       </HStack>
 
       <Drawer placement="left" onClose={onClose} isOpen={isOpen}>
@@ -246,7 +289,6 @@ export default function Header() {
                     {' '}
                     <Button colorScheme="blue">Login</Button>
                   </Link>
-                  <p>OR</p>
                   <Link onClick={onClose} to={'/register'}>
                     {' '}
                     <Button colorScheme="blue">Sign Up</Button>

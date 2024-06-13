@@ -7,6 +7,8 @@ body {
   animation: transitionIn 1s;
 }
 
+/* transition used when body is loaded again */
+
 @keyframes transitionIn {
   from {
     opacity: 0;
@@ -110,17 +112,18 @@ body {
 //   // background-attachment: local;
 // }
 
-.home-image {
-  filter: drop-shadow(0 40px 10px rgba(0, 0, 0, 0.3));
-  animation: homeImageAnimation 1s infinite ease-in-out alternate;
-}
+// .home-image {
+//   filter: drop-shadow(0 40px 10px rgba(0, 0, 0, 0.3));
+//   animation: homeImageAnimation 1s infinite ease-in-out alternate;
+// }
 
-@keyframes homeImageAnimation {
-  to {
-    transform: translateY(-10px);
-  }
-}
+// @keyframes homeImageAnimation {
+//   to {
+//     transform: translateY(-10px);
+//   }
+// }
 
+/* animation used when scroll is triggered */
 @keyframes appear {
   from {
     opacity: 0;
@@ -190,7 +193,7 @@ body {
   z-index: 100;
 }
 
-// Register.jsx styling
+// Register.jsx styling for choose file button
 @mixin fileUploadButtonStyling() {
   cursor: pointer;
   width: 115%;
