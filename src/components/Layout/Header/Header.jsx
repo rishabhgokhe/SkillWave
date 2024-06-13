@@ -61,7 +61,7 @@ export default function Header() {
 
   return (
     <>
-      <HStack className="nav-bar" position={'relative'}>
+      <HStack className="nav-bar">
         {/* <ColorModeSwitcher /> */}
         <Button
           padding={'0'}
