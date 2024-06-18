@@ -37,7 +37,7 @@ export default function Dashboard() {
           direction={['column', 'row']}
           justifyContent={['center', 'space-evenly']}
         >
-          <StatsBox title={'Views'} qty={4528} percentage={36} profit={true} />
+          <StatsBox title={'Views'} qty={45528} percentage={36} profit={true} />
           <StatsBox title={'Users'} qty={408} percentage={29} profit={false} />
           <StatsBox title={'Subscription'} qty={48} percentage={56} profit={true} />
           <StatsBox title={'Ratings'} qty={448} percentage={45} profit={true} />

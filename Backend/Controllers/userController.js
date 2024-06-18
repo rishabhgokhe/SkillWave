@@ -10,7 +10,7 @@ export function getAllUsers(req, res, next) {
   res.send('running');
 }
 
-//-------------------------------------------------------------------------------------//
+//-------------------------------------------------------------------------------------
 export const register = catchAsyncError(async (req, res, next) => {
   const { name, email, password } = req.body;
   // const file = req.file;
@@ -40,7 +40,7 @@ export const register = catchAsyncError(async (req, res, next) => {
   sendToken(res, user, 'Account Successfully created', 201);
 });
 
-//-------------------------------------------------------------------------------------//
+//-------------------------------------------------------------------------------------
 export const login = catchAsyncError(async (req, res, next) => {
   const { email, password } = req.body;
   // const file = req.file;
@@ -65,7 +65,7 @@ export const login = catchAsyncError(async (req, res, next) => {
   sendToken(res, user, `Logged in successfully as ${user.name}`, 200);
 });
 
-//-------------------------------------------------------------------------------------//
+//-------------------------------------------------------------------------------------
 export const logout = catchAsyncError(async (req, res, next) => {
   res
     .status(200)
@@ -78,7 +78,7 @@ export const logout = catchAsyncError(async (req, res, next) => {
     });
 });
 
-//-------------------------------------------------------------------------------------//
+//-------------------------------------------------------------------------------------
 export const getProfile = catchAsyncError(async (req, res, next) => {
   const user = await User.findById(req.user._id);
 
@@ -88,7 +88,7 @@ export const getProfile = catchAsyncError(async (req, res, next) => {
   });
 });
 
-//-------------------------------------------------------------------------------------//
+//-------------------------------------------------------------------------------------
 export const changePassword = catchAsyncError(async (req, res, next) => {
   const { oldPassword, newPassword } = req.body;
   if (!oldPassword || !newPassword) {
@@ -113,7 +113,7 @@ export const changePassword = catchAsyncError(async (req, res, next) => {
   });
 });
 
-//-------------------------------------------------------------------------------------//
+//-------------------------------------------------------------------------------------
 export const updateProfile = catchAsyncError(async (req, res, next) => {
   const { name, email } = req.body;
 
@@ -130,7 +130,7 @@ export const updateProfile = catchAsyncError(async (req, res, next) => {
   });
 });
 
-//-------------------------------------------------------------------------------------//
+//-------------------------------------------------------------------------------------
 export const updateProfilePicture = catchAsyncError(async (req, res, next) => {
   // upload to cloudinary
   // const file = req.file;
@@ -141,7 +141,7 @@ export const updateProfilePicture = catchAsyncError(async (req, res, next) => {
   });
 });
 
-//-------------------------------------------------------------------------------------//
+//-------------------------------------------------------------------------------------
 export const forgetPassword = catchAsyncError(async (req, res, next) => {
   const { email } = req.body;
 
@@ -164,7 +164,7 @@ export const forgetPassword = catchAsyncError(async (req, res, next) => {
   });
 });
 
-//-------------------------------------------------------------------------------------//
+//-------------------------------------------------------------------------------------
 export const resetPassword = catchAsyncError(async (req, res, next) => {
   const { token } = req.params;
 
@@ -194,7 +194,7 @@ export const resetPassword = catchAsyncError(async (req, res, next) => {
   });
 });
 
-//-------------------------------------------------------------------------------------//
+//-------------------------------------------------------------------------------------
 export const addToPlaylist = catchAsyncError(async (req, res, next) => {
   // here we can get user info as in route we used isAuthenticated with addToPlaylist and when authenticating user with cookies we generated jwt token with _id and in decoding the cookie we can get hold of user _id (for more details see auth.js)
   const user = await User.findById(req.user._id);
@@ -223,7 +223,7 @@ export const addToPlaylist = catchAsyncError(async (req, res, next) => {
   });
 });
 
-//-------------------------------------------------------------------------------------//
+//-------------------------------------------------------------------------------------
 export const removeFromPlaylist = catchAsyncError(async (req, res, next) => {
   const user = await User.findById(req.user._id);
 
