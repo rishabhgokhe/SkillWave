@@ -5,6 +5,8 @@ import sendToken from '../Utils/sendToken.js';
 import { sendEmail } from '../Utils/sendEmail.js';
 import crypto from 'crypto';
 import Course from '../Models/courseModal.js';
+import getDataUri from '../Utils/dataUri.js';
+import cloudinary from "cloudinary";
 
 export function getAllUsers(req, res, next) {
   res.send('running');
@@ -13,7 +15,6 @@ export function getAllUsers(req, res, next) {
 //-------------------------------------------------------------------------------------
 export const register = catchAsyncError(async (req, res, next) => {
   const { name, email, password } = req.body;
-  // const file = req.file;
 
   if (!name || !email || !password) {
     next(new ErrorHandler('Please enter all details', 400));
@@ -25,14 +26,17 @@ export const register = catchAsyncError(async (req, res, next) => {
     return next(new ErrorHandler('User already existed', 409));
   }
 
-  // upload avatar to cloudinary
+  const file = req.file;
+  const fileUri = getDataUri(file);
+  const cloudFile = await cloudinary.v2.uploader.upload(fileUri.content);
+
   user = await User.create({
     name,
     email,
     password,
     avatar: {
-      public_id: 'demo',
-      url: 'demo',
+      public_id: cloudFile.public_id,
+      url: cloudFile.secure_url,
     },
   });
 
@@ -43,7 +47,6 @@ export const register = catchAsyncError(async (req, res, next) => {
 //-------------------------------------------------------------------------------------
 export const login = catchAsyncError(async (req, res, next) => {
   const { email, password } = req.body;
-  // const file = req.file;
 
   if (!email || !password) {
     next(new ErrorHandler('Please enter all details', 400));
@@ -132,8 +135,21 @@ export const updateProfile = catchAsyncError(async (req, res, next) => {
 
 //-------------------------------------------------------------------------------------
 export const updateProfilePicture = catchAsyncError(async (req, res, next) => {
-  // upload to cloudinary
-  // const file = req.file;
+
+  const user = await User.findById(req.user._id);
+  const file = req.file;
+  const fileUri = getDataUri(file);
+  const cloudFile = await cloudinary.v2.uploader.upload(fileUri.content);
+
+  // delete old avatar from cloudinary
+  await cloudinary.v2.uploader.destroy(user.avatar.public_id);
+
+  user.avatar = {
+    public_id: cloudFile.public_id,
+    url: cloudFile.secure_url
+  }
+
+  await user.save();
 
   res.status(200).json({
     success: true,
