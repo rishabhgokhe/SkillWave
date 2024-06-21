@@ -6,13 +6,64 @@ import { sendEmail } from '../Utils/sendEmail.js';
 import crypto from 'crypto';
 import Course from '../Models/courseModal.js';
 import getDataUri from '../Utils/dataUri.js';
-import cloudinary from "cloudinary";
+import cloudinary from 'cloudinary';
+import { log } from 'console';
 
-export function getAllUsers(req, res, next) {
-  res.send('running');
-}
+//---------------------------- Admin Controllers --------------------------------------
+export const getAllUsers = catchAsyncError(async (req, res, next) => {
+  const users = await User.find({});
+
+  res.status(200).json({
+    success: true,
+    users,
+  });
+});
 
 //-------------------------------------------------------------------------------------
+export const updateUserRole = catchAsyncError(async (req, res, next) => {
+  const user = await User.findById(req.params.id);
+  const currentUserId = req.user._id.toString();
+
+  if (!user) return next(new ErrorHandler('User not found', 404));
+
+  if (currentUserId === req.params.id)
+    return next(new ErrorHandler('You cannot demote yourself', 400));
+
+  if (user.role === 'user') {
+    user.role = 'admin';
+  } else {
+    user.role = 'user';
+  }
+
+  await user.save();
+
+  res.status(200).json({
+    success: true,
+    message: 'Role Successfully updated.',
+  });
+});
+
+//-------------------------------------------------------------------------------------
+export const deleteUser = catchAsyncError(async (req, res, next) => {
+  const user = await User.findById(req.params.id);
+  const currentUserId = req.user._id.toString();
+
+  if (!user) return next(new ErrorHandler('User not found', 404));
+  if (currentUserId === req.params.id)
+    return next(
+      new ErrorHandler('You cannot delete your account you are admin', 400)
+    );
+
+  await cloudinary.v2.uploader.destroy(user.avatar.public_id);
+  await user.deleteOne();
+
+  res.status(200).json({
+    success: true,
+    message: 'User deleted',
+  });
+});
+
+//--------------------------------User Controllers--------------------------------------
 export const register = catchAsyncError(async (req, res, next) => {
   const { name, email, password } = req.body;
 
@@ -92,6 +143,24 @@ export const getProfile = catchAsyncError(async (req, res, next) => {
 });
 
 //-------------------------------------------------------------------------------------
+export const deleteProfile = catchAsyncError(async (req, res, next) => {
+  const user = await User.findById(req.user._id);
+
+  await cloudinary.v2.uploader.destroy(user.avatar.public_id);
+  await user.deleteOne();
+
+  res
+    .status(200)
+    .cookie('Token', null, {
+      expires: new Date(Date.now()),
+    })
+    .json({
+      success: true,
+      message: 'Profile deleted',
+    });
+});
+
+//-------------------------------------------------------------------------------------
 export const changePassword = catchAsyncError(async (req, res, next) => {
   const { oldPassword, newPassword } = req.body;
   if (!oldPassword || !newPassword) {
@@ -135,7 +204,6 @@ export const updateProfile = catchAsyncError(async (req, res, next) => {
 
 //-------------------------------------------------------------------------------------
 export const updateProfilePicture = catchAsyncError(async (req, res, next) => {
-
   const user = await User.findById(req.user._id);
   const file = req.file;
   const fileUri = getDataUri(file);
@@ -146,8 +214,8 @@ export const updateProfilePicture = catchAsyncError(async (req, res, next) => {
 
   user.avatar = {
     public_id: cloudFile.public_id,
-    url: cloudFile.secure_url
-  }
+    url: cloudFile.secure_url,
+  };
 
   await user.save();
 
@@ -219,7 +287,7 @@ export const addToPlaylist = catchAsyncError(async (req, res, next) => {
 
   if (!course) return next(new ErrorHandler('Course not found', 404));
 
-  const courseExists = user.playlist.find((item) => {
+  const courseExists = user.playlist.find(item => {
     if (item.course.toString() === course._id.toString()) return true;
   });
 
@@ -247,9 +315,9 @@ export const removeFromPlaylist = catchAsyncError(async (req, res, next) => {
 
   if (!course) return next(new ErrorHandler('Course not found', 404));
 
-  const newPlaylist = user.playlist.filter((item) => {
+  const newPlaylist = user.playlist.filter(item => {
     if (item.course.toString() !== course._id.toString()) return item;
-  })
+  });
 
   user.playlist = newPlaylist;
   await user.save();
