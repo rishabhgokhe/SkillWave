@@ -158,7 +158,7 @@ export default function Header() {
           </>
         )}
 
-        <Link to={'https://rishabhgokhe.github.io/my_profile/'}>
+        <Link to={'https://portfolio-rishabhgokhe.vercel.app/'}>
           <Button
           size={'sm'}
             leftIcon={<AccountSetting03Icon />}

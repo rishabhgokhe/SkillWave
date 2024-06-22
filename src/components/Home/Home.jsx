@@ -29,6 +29,7 @@ import BinanceSvg from '../../assets/svg/binance_icon.svg';
 import { BsPersonLinesFill } from 'react-icons/bs';
 import SearchVisualIcon from '../../assets/svg/icons/SearchVisualIcon.jsx';
 import CircleArrowUpRight02Icon from '../../assets/svg/icons/CircleArrowUpRight02Icon.jsx';
+import LandingScreenshot from './LandingScreenshot.jsx';
 
 export default function Home() {
   return (
@@ -106,6 +107,7 @@ export default function Home() {
         </Stack> */}
       </Box>
 
+      <LandingScreenshot />
       <ExploreCoursesHome />
       <FeatureSection />
       <TestimonialContent />

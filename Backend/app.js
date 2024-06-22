@@ -9,7 +9,6 @@ config({
 
 const app = express();
 
-
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(cookieParser());
@@ -17,9 +16,11 @@ app.use(cookieParser());
 //importing routes
 import courseRoute from './Routes/courseRoutes.js';
 import userRoute from './Routes/userRoutes.js';
+import paymentRoute from './Routes/paymentRoutes.js';
 
 app.use('/api/v1', courseRoute);
 app.use('/api/v1', userRoute);
+app.use('/api/v1', paymentRoute);
 
 export default app;
 
