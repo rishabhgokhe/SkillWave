@@ -1,9 +1,12 @@
 import express from 'express';
-import { authorizeAdmin, isAuthenticated } from '../Middlewares/auth.js';
-import { buySubscription } from '../Controllers/paymentController.js';
+import { isAuthenticated } from '../Middlewares/auth.js';
+import { buySubscription, cancelSubscription, paymentVerification } from '../Controllers/paymentController.js';
 
 const paymentRoute = express.Router();
 
 paymentRoute.route("/subscribe").post(isAuthenticated, buySubscription)
+paymentRoute.route("/paymentverification").post(isAuthenticated, paymentVerification)
+paymentRoute.route("/subscribe/cancel").delete(isAuthenticated, cancelSubscription)
+
 
 export default paymentRoute;
