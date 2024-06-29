@@ -7,7 +7,6 @@ import crypto from 'crypto';
 import Course from '../Models/courseModal.js';
 import getDataUri from '../Utils/dataUri.js';
 import cloudinary from 'cloudinary';
-import { log } from 'console';
 
 //---------------------------- Admin Controllers --------------------------------------
 export const getAllUsers = catchAsyncError(async (req, res, next) => {

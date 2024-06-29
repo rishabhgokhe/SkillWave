@@ -81,7 +81,7 @@ export const cancelSubscription = catchAsyncError(async (req, res, next) => {
 
   if (refundTime > remaningRefundDays) {
     refund = true;
-    await instance.payments.refund(payment.razorpay_payment_id);
+    // await instance.payments.refund(payment.razorpay_payment_id);
   } else {
     return next(
       new ErrorHandler(

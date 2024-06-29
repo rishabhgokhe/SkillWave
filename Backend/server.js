@@ -1,5 +1,5 @@
 import app from './app.js';
-import dbConnection from './Config/dataBase.js';
+import dbConnection from './Utils/dataBase.js';
 import cloudinary from 'cloudinary';
 import Razorpay from "razorpay";
 
