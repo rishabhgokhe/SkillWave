@@ -4,7 +4,6 @@ import ErrorHandler from '../Utils/ErrorHandler.js';
 import crypto from 'crypto';
 import { instance } from '../server.js';
 import Payment from '../Models/paymentModal.js';
-import { log } from 'console';
 
 export const buySubscription = catchAsyncError(async (req, res, next) => {
   const user = await User.findById(req.user._id);

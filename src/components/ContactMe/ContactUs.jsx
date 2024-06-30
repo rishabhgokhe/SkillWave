@@ -61,7 +61,7 @@ export default function ContactUs() {
             </Button>
 
             <Box textAlign="center" my={4}>
-              New Course Suggestion ? {' '}
+              New Course or Feature Suggestion ? {' '}
               <Link to="/request">
                 <Button colorScheme="blue" variant="link">
                   Request Us

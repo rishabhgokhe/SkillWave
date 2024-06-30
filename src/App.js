@@ -10,7 +10,6 @@ import Register from './components/Auth/Register.jsx';
 import ForgetPassword from './components/Auth/ForgetPassword.jsx';
 import ResetPassword from './components/Auth/ResetPassword.jsx';
 import ContactUs from './components/ContactMe/ContactUs.jsx';
-import Request from './components/ContactMe/Request.jsx';
 import About from './components/About/About.jsx';
 import Notification from './components/Notifications/Notification.jsx';
 import Subscribe from './components/Payments/Subscribe.jsx';
@@ -26,6 +25,7 @@ import Dashboard from './components/Admin/Dashboard/Dashboard.jsx';
 import Users from './components/Admin/Users/Users.jsx';
 import AdminCourses from './components/Admin/Admin Courses/AdminCourses.jsx';
 import CreateCourse from './components/Admin/Create Course/CreateCourse.jsx';
+import RequestTabSwitcher from './components/ContactMe/RequestTabSwitcher.jsx';
 
 function App() {
 
@@ -41,7 +41,7 @@ function App() {
         <Route path="/courses" element={<Courses />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/contact" element={<ContactUs />} />
-        <Route path="/request" element={<Request />} />
+        <Route path="/request" element={<RequestTabSwitcher />} />
         <Route path="/about" element={<About />} />
         <Route path="/notifications" element={<Notification />} />
         <Route path="/register" element={<Register />} />

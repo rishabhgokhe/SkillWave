@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import MailSend01Icon from "../../assets/svg/icons/MailSend01Icon";
 
 
-export default function Request() {
+export default function RequestCourse() {
 
     const [name, setName] = useState();
     const [email, setEmail] = useState();
@@ -18,7 +18,7 @@ export default function Request() {
     <Container height={'75vh'} marginY={'10'}>
  <VStack height={'full'} spacing={'5'}> 
     <Heading children='Request New Course' />
-    <form  style={{ width: '100%' }}>
+    <form style={{ width: '100%' }} action="/api/v1/request" method="POST">
 
     <Box my={4}>
               <FormLabel htmlFor="name" children="Name" />
