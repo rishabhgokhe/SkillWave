@@ -8,5 +8,4 @@ paymentRoute.route("/subscribe").post(isAuthenticated, buySubscription)
 paymentRoute.route("/paymentverification").post(isAuthenticated, paymentVerification)
 paymentRoute.route("/subscribe/cancel").delete(isAuthenticated, cancelSubscription)
 
-
 export default paymentRoute;

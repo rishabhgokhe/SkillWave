@@ -1,22 +1,42 @@
+![SkillWave Banner](src/assets/images/SkillWave%20Banner.png)
+
 # SkillWave (Ed-Tech Platform)
 
 ## Description
 
 SkillWave is an innovative online platform dedicated to empowering learners worldwide. Our mission is to provide accessible, high-quality courses that enable individuals to acquire new skills, advance their careers, and achieve personal growth.
 
+## ✨ Features
+
+- User-friendly interface designed with Chakra UI React Library.
+- Comprehensive course catalog with diverse learning paths.
+- Real-time updates and notifications for course progress.
+- Interactive dashboards for both learners and instructors.
+- Secure user authentication and authorization system.
+- Integrated feedback system for continuous improvement.
+
+## 🚀 Upcoming Features
+
+- Implement user authentication for accessing course content.
+- Create dedicated routes for each section of the user dashboard.
+- Enable users to become instructors and publish their courses.
+- Enhanced data storage and management capabilities.
+
+## Currently Working on Feature (User Authentication)
+I am currently working on Backend APIs.
+
 ## Tech Stack
 - **Frontend:** HTML, SCSS, JavaScript, React
 - **UI Library:** Chakra UI React Library
 - **Backend:** Node.js, Express.js
-
-## Currently Working on Feature (User Authentication)
-I am currently working on Backend APIs.
+- **Database:** MongoDB (MongoDB Atlas)
 
 ## ⚙︎ Setup Instructions
 
 ### Prerequisites
 - [Node.js](https://nodejs.org/)
 - [npm](https://www.npmjs.com/)
+- [MongoDB](https://www.mongodb.com/)
 
 ### Installation
 1. **Clone the Repository:**
@@ -26,13 +46,26 @@ I am currently working on Backend APIs.
 
 2. **Install Node Modules**
     ```bash
-    npm Install
+    npm install
 
-3. **Run project and start Development**
+3. **Setup Environment Variables:**  
+   Create a `.env.local` file in new [Backend-Config-config.env] directory and add the following:  
+       JWT_SECRET- is essential for generating login cookies
+       <br/>
+       MONGODB_URI - required for add and fetching data
+       <br/>
+   ```plaintext
+   PORT=4000
+   MONGODB_URI=<your-mongodb-connection-string>
+   JWT_SECRET=<randomString>
+   WEBSITE_URL="http://localhost:3000"
+
+
+4. **Run project and start Development**
     ```bash
     npm start
 
-6. **Access the Application:**  
+5. **Access the Application:**  
    Open your browser and navigate to [http://localhost:3000](http://localhost:3000).
 
 ## Future Enhancements
@@ -43,17 +76,27 @@ I am currently working on Backend APIs.
 
 ## Live Preview
 
-SkillWave is live on Netlify [https://skill-wave.netlify.app/](https://skill-wave.netlify.app/) .
-
-It may take some time to load for the first time, as it is deployed on the free tier of [Netlify](https://www.netlify.com/), which puts the application to sleep in case of inactivity.
+SkillWave is live on Vercel [skillwave20.vercel.app/](https://skillwave20.vercel.app/) .
 
 ## Acknowledgments
 - [React](https://react.dev/) library for web and native user interfaces
 - [Chakra React UI Library](https://v2.chakra-ui.com/) UI Component Library for React
+- [MongoDB](https://www.mongodb.com/) for the database management system
 - [Node.js](https://nodejs.org/) for the JavaScript runtime.
 - [Express.js](https://expressjs.com/) for the web application framework.
 
+## Code of Conduct
+
+We expect all participants in our community to adhere to our Code of Conduct. Please read the full text [here](CODE_OF_CONDUCT.md).
+
+## License
+
+This project is proprietary and not open for public use. All rights are reserved by Rishabh Gokhe.
+For inquiries regarding the licensing of this software, please contact: rishabhgokhe@gmail.com
+
 ---
+
+Ready to collaborate and improve your skill or share it worldwide? Contact me at [![Email Me](https://img.shields.io/badge/Email-Me-black?style=flat&logo=[YOUR_ICON_URL]&logoColor=white)](mailto:rishabhgokhe2004@gmail.com)
 
 ## Contribution Guidelines
 Contributions are welcome! Please follow these steps to contribute:
@@ -63,6 +106,7 @@ Contributions are welcome! Please follow these steps to contribute:
 4. Commit your changes (`git commit -am 'Add some feature'`).
 5. Push to the branch (`git push origin feature/your-feature`).
 6. Create a new Pull Request.
+
 ## 👨🏻‍💻 Authors
 
 - [Rishabh Gokhe](https://www.github.com/rishabhgokhe)
@@ -81,4 +125,5 @@ Our vision is to empower individuals to pursue their passions, advance their car
 
 ## Feedback
 
-If you have any feedback, please reach out to us at [rishabhgokhe2004@gmail.com](mailto:rishabhgokhe2004@gmail.com).
+If you have any feedback, please reach out to us at 
+[![Email Me](https://img.shields.io/badge/Email-Me-black?style=flat&logo=[YOUR_ICON_URL]&logoColor=white)](mailto:rishabhgokhe2004@gmail.com)
