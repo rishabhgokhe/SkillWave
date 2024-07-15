@@ -6,6 +6,24 @@
 
 SkillWave is an innovative online platform dedicated to empowering learners worldwide. Our mission is to provide accessible, high-quality courses that enable individuals to acquire new skills, advance their careers, and achieve personal growth.
 
+## Table of Contents
+
+- [✨ Features](#-features)
+- [🚀 Upcoming Features](#-upcoming-features)
+- [Tech Stack](#tech-stack)
+- [⚙️ Setup Instructions](#️-setup-instructions)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Future Enhancements](#future-enhancements)
+- [Live Preview](#live-preview)
+- [Acknowledgments](#acknowledgments)
+- [Code of Conduct](#code-of-conduct)
+- [License](#license)
+- [Contribution Guidelines](#contribution-guidelines)
+- [👨🏻‍💻 Authors](#-authors)
+- [🚀 About Me](#-about-me)
+- [Feedback](#feedback)
+
 ## ✨ Features
 
 - User-friendly interface designed with Chakra UI React Library.
@@ -23,9 +41,11 @@ SkillWave is an innovative online platform dedicated to empowering learners worl
 - Enhanced data storage and management capabilities.
 
 ## Currently Working on Feature (User Authentication)
+
 I am currently working on Backend APIs.
 
 ## Tech Stack
+
 - **Frontend:** HTML, SCSS, JavaScript, React
 - **UI Library:** Chakra UI React Library
 - **Backend:** Node.js, Express.js
@@ -34,43 +54,61 @@ I am currently working on Backend APIs.
 ## ⚙︎ Setup Instructions
 
 ### Prerequisites
+
 - [Node.js](https://nodejs.org/)
 - [npm](https://www.npmjs.com/)
 - [MongoDB](https://www.mongodb.com/)
 
 ### Installation
+
 1. **Clone the Repository:**
+
    ```bash
    git clone https://github.com/rishabhgokhe/SkillWave.git
 
+   ```
+
 2. **Navigate to Repository**
-    ```bash
-    cd SkillWave
+
+   ```bash
+   cd SkillWave
+
+   ```
 
 3. **Install Node Modules**
-    ```bash
-    npm install
+
+   ```bash
+   npm install
+
+   ```
 
 4. **Setup Environment Variables:**  
    Create a `.env.local` file in new [Backend-Config-config.env] directory and add the following:  
-       JWT_SECRET- is essential for generating login cookies
-       <br/>
-       MONGODB_URI - required for add and fetching data
-       <br/>
+    JWT_SECRET- is essential for generating login cookies
+   <br/>
+   MONGODB_URI - required for add and fetching data
+   <br/>
+
    ```plaintext
    PORT=4000
    MONGODB_URI=<your-mongodb-connection-string>
    JWT_SECRET=<randomString>
    WEBSITE_URL="http://localhost:3000"
 
+   ```
+
 5. **Run project and start Development**
-    ```bash
-    npm start
+
+   ```bash
+   npm start
+
+   ```
 
 6. **Access the Application:**  
    Open your browser and navigate to [http://localhost:3000](http://localhost:3000).
 
 ## Future Enhancements
+
 - Implement user authentication for accessing their course content.
 - Creating Routes for Each Dashboard Button.
 - Users can also become a Instructors.
@@ -81,6 +119,7 @@ I am currently working on Backend APIs.
 SkillWave is live on Vercel [skillwave20.vercel.app/](https://skillwave20.vercel.app/) .
 
 ## Acknowledgments
+
 - [React](https://react.dev/) library for web and native user interfaces
 - [Chakra React UI Library](https://v2.chakra-ui.com/) UI Component Library for React
 - [MongoDB](https://www.mongodb.com/) for the database management system
@@ -101,7 +140,9 @@ For inquiries regarding the licensing of this software, please contact: rishabhg
 Ready to collaborate and improve your skill or share it worldwide? Contact me at [![Email Me](https://img.shields.io/badge/Email-Me-black?style=flat&logo=[YOUR_ICON_URL]&logoColor=white)](mailto:rishabhgokhe2004@gmail.com)
 
 ## Contribution Guidelines
+
 Contributions are welcome! Please follow these steps to contribute:
+
 1. Fork the repository.
 2. Create a new branch (`git checkout -b feature/your-feature`).
 3. Make your changes.
@@ -127,5 +168,5 @@ Our vision is to empower individuals to pursue their passions, advance their car
 
 ## Feedback
 
-If you have any feedback, please reach out to us at 
+If you have any feedback, please reach out to us at
 [![Email Me](https://img.shields.io/badge/Email-Me-black?style=flat&logo=[YOUR_ICON_URL]&logoColor=white)](mailto:rishabhgokhe2004@gmail.com)
