@@ -41,14 +41,17 @@ I am currently working on Backend APIs.
 ### Installation
 1. **Clone the Repository:**
    ```bash
-   git clone <repository-url>
-   cd SkillWave
+   git clone https://github.com/rishabhgokhe/SkillWave.git
 
-2. **Install Node Modules**
+2. **Navigate to Repository**
+    ```bash
+    cd SkillWave
+
+3. **Install Node Modules**
     ```bash
     npm install
 
-3. **Setup Environment Variables:**  
+4. **Setup Environment Variables:**  
    Create a `.env.local` file in new [Backend-Config-config.env] directory and add the following:  
        JWT_SECRET- is essential for generating login cookies
        <br/>
@@ -60,12 +63,11 @@ I am currently working on Backend APIs.
    JWT_SECRET=<randomString>
    WEBSITE_URL="http://localhost:3000"
 
-
-4. **Run project and start Development**
+5. **Run project and start Development**
     ```bash
     npm start
 
-5. **Access the Application:**  
+6. **Access the Application:**  
    Open your browser and navigate to [http://localhost:3000](http://localhost:3000).
 
 ## Future Enhancements
