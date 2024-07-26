@@ -26,6 +26,7 @@ import Users from './components/Admin/Users/Users.jsx';
 import AdminCourses from './components/Admin/Admin Courses/AdminCourses.jsx';
 import CreateCourse from './components/Admin/Create Course/CreateCourse.jsx';
 import RequestTabSwitcher from './components/ContactMe/RequestTabSwitcher.jsx';
+import ReleaseNotes from './components/Release Notes/ReleaseNotes.jsx';
 
 function App() {
 
@@ -44,14 +45,17 @@ function App() {
         <Route path="/request" element={<RequestTabSwitcher />} />
         <Route path="/about" element={<About />} />
         <Route path="/notifications" element={<Notification />} />
+        <Route path='/releasenotes' element={<ReleaseNotes />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forgetpassword" element={<ForgetPassword />} />
         <Route path="/resetpassword/:token" element={<ResetPassword />} />
         <Route path='/subscribenewsletter' element={<NewletterSubscribe />} />
         <Route path="/course/:id" element={<CoursePage />} />
+
         <Route path="/profile" element={<Profile />} />
         <Route path="/updateprofile" element={<Updateprofile />} />
         <Route path="/changepassword" element={<ChangePassword />} />
+
         <Route path="/subscribe" element={<Subscribe />} />
         <Route path="/paymentsuccess" element={<PaymentSuccess />} />
         <Route path="/paymentfail" element={<PaymentFail />} />

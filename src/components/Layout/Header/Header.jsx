@@ -1,6 +1,7 @@
 import React from 'react';
 // import ColorModeSwitcher from '../../../ColorModeSwitcher';
 import {
+  Box,
   Button,
   Drawer,
   DrawerBody,
@@ -61,6 +62,9 @@ export default function Header() {
 
   return (
     <>
+    <Box backgroundColor={"#F6FB7A"} textAlign={"center"} fontWeight={"bold"} p={2}>
+      <p>SkillWave is under development.. View <Link to={"/releasenotes"}><span style={{color: "#EF5A6F", textDecoration: "underline"}}>Release Notes</span></Link> for new release, feature or bug fixes</p>
+    </Box>
       <HStack className="nav-bar">
         {/* <ColorModeSwitcher /> */}
         <Button
