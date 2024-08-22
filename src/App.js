@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Heading } from '@chakra-ui/react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { toast, Toaster } from 'react-hot-toast';
+import { useDispatch, useSelector } from 'react-redux';
+import { clearError, clearMessage } from './redux/reducers/userReducer.js';
+
 import Home from './components/Home/Home.jsx';
 import Header from './components/Layout/Header/Header.jsx';
 import Courses from './components/Courses/Courses.jsx';
@@ -29,14 +33,36 @@ import RequestTabSwitcher from './components/ContactMe/RequestTabSwitcher.jsx';
 import ReleaseNotes from './components/Release Notes/ReleaseNotes.jsx';
 
 function App() {
+  // window.addEventListener('contextmenu', (e) => {
+  //   e.preventDefault();
+  // });
+  const { isAuthenticated, user, error, message } = useSelector(
+    state => state.user
+  );
 
-// window.addEventListener('contextmenu', (e) => {
-//   e.preventDefault();
-// });
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (error) {
+      toast.error(error, {
+        duration: 5000,
+        autoClose: true,
+      });
+      dispatch(clearError());
+    }
+    if (message) {
+      toast.success(message, {
+        duration: 5000,
+        autoClose: true,
+      });
+      dispatch(clearMessage());
+    }
+  }, [dispatch, message, error]);
 
   return (
     <Router>
-      <Header />
+      <Header isAuthenticated={isAuthenticated} user={user} />
+      <Toaster position="top-right" />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/courses" element={<Courses />}></Route>
@@ -45,11 +71,11 @@ function App() {
         <Route path="/request" element={<RequestTabSwitcher />} />
         <Route path="/about" element={<About />} />
         <Route path="/notifications" element={<Notification />} />
-        <Route path='/releasenotes' element={<ReleaseNotes />} />
+        <Route path="/releasenotes" element={<ReleaseNotes />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forgetpassword" element={<ForgetPassword />} />
         <Route path="/resetpassword/:token" element={<ResetPassword />} />
-        <Route path='/subscribenewsletter' element={<NewletterSubscribe />} />
+        <Route path="/subscribenewsletter" element={<NewletterSubscribe />} />
         <Route path="/course/:id" element={<CoursePage />} />
 
         <Route path="/profile" element={<Profile />} />
@@ -61,12 +87,14 @@ function App() {
         <Route path="/paymentfail" element={<PaymentFail />} />
         <Route path="*" element={<NotFound />} />
 
-        <Route path='admin/dashboard' element={<Dashboard />} ></Route>
-        <Route path='admin/users' element={<Users />} ></Route>
-        <Route path='admin/courses' element={<AdminCourses />} ></Route>
-        <Route path='admin/createcourse' element={<CreateCourse />} ></Route>
+        <Route path="admin/dashboard" element={<Dashboard />}></Route>
+        <Route path="admin/users" element={<Users />}></Route>
+        <Route path="admin/courses" element={<AdminCourses />}></Route>
+        <Route path="admin/createcourse" element={<CreateCourse />}></Route>
       </Routes>
-      <Heading m='4' as='h2' size={'sm'} textAlign={'center'} >Proudly made in 🇮🇳 by Rishabh Gokhe</Heading>
+      <Heading m="4" as="h2" size={'sm'} textAlign={'center'}>
+        Proudly made in 🇮🇳 by Rishabh Gokhe
+      </Heading>
       <Footer />
     </Router>
   );

@@ -35,13 +35,10 @@ import SidebarLeftIcon from '../../../assets/svg/icons/SidebarLeftIcon.jsx';
 import UserIdVerificationIcon from '../../../assets/svg/icons/UserIdVerificationIcon.jsx';
 import AccountSetting03Icon from '../../../assets/svg/icons/AccountSetting03Icon.jsx';
 
-export default function Header() {
+
+export default function Header({ isAuthenticated, user }) {
   const isDesktop = useBreakpointValue({ base: false, md: true });
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const isAuthenticated = true;
-  const user = {
-    role: 'admin',
-  };
 
   function handleLogout() {
     console.log('Logged out');
@@ -62,9 +59,22 @@ export default function Header() {
 
   return (
     <>
-    <Box backgroundColor={"#F6FB7A"} textAlign={"center"} fontWeight={"bold"} p={2}>
-      <p>SkillWave is under development.. View <Link to={"/releasenotes"}><span style={{color: "#EF5A6F", textDecoration: "underline"}}>Release Notes</span></Link> for new release, feature or bug fixes</p>
-    </Box>
+      <Box
+        backgroundColor={'#F6FB7A'}
+        textAlign={'center'}
+        fontWeight={'bold'}
+        p={2}
+      >
+        <p>
+          SkillWave is under development.. View{' '}
+          <Link to={'/releasenotes'}>
+            <span style={{ color: '#EF5A6F', textDecoration: 'underline' }}>
+              Release Notes
+            </span>
+          </Link>{' '}
+          for new release, feature or bug fixes
+        </p>
+      </Box>
       <HStack className="nav-bar">
         {/* <ColorModeSwitcher /> */}
         <Button
@@ -164,7 +174,7 @@ export default function Header() {
 
         <Link to={'https://portfolio-rishabhgokhe.vercel.app/'}>
           <Button
-          size={'sm'}
+            size={'sm'}
             leftIcon={<AccountSetting03Icon />}
             position={'absolute'}
             top={'4'}
@@ -177,7 +187,7 @@ export default function Header() {
               &:hover {
                 background: blackAlpha.300;
               }
-                color: black;
+              color: black;
             `}
             borderRadius={'20'}
           >

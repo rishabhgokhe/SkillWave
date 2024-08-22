@@ -111,7 +111,7 @@ export const login = catchAsyncError(async (req, res, next) => {
   const isMatch = await user.comparePassword(password);
 
   if (!isMatch) {
-    return next(new ErrorHandler('Inncorrect password or email', 401));
+    return next(new ErrorHandler('Incorrect password or email', 401));
   }
 
   // successfuly creates an account and saves login cookie in browser for 10 days

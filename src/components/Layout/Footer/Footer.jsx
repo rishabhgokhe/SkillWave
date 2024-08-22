@@ -12,11 +12,6 @@ import MailAdd02Icon from '../../../assets/svg/icons/MailAdd02Icon';
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
-  //  const mailtoLink = () => {
-  //    const href = `mailto:rishabhgokhe2004@gmail.com`;
-  //    return <Link href={href}>Open Mail</Link>;
-  //  };
-
   return (
     <Box padding={'5'} pb={'0'} bg="black" minH={'10vh'}>
       <VStack>
@@ -36,7 +31,7 @@ export default function Footer() {
           <a href="https://instagram.com/rishabh_gokhe" target={'blank'}>
             <FaInstagram fontSize={'2rem'} />
           </a>
-          <a href={`mailto:rishabhgokhe@gmail.com`} target={'blank'}>
+          <a href={`mailto:rishabhgokhe20contact@gmail.com`} target={'blank'}>
             <MailAdd02Icon />
           </a>{' '}
         </HStack>

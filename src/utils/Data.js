@@ -31,14 +31,63 @@ const updateBadgeData = {
 
 export const ReleaseNotesData = [
   {
-    version: '0.1.8',
+    version: '0.1.6',
+    date: '2024-08-17',
+    badge: {
+      title: `${updateBadgeData.major.title} | ${updateBadgeData.feature.title} | ${updateBadgeData.improvement.title}`,
+    },
+    notes: [
+      'Added animations from animease npm package',
+    ],
+  },
+  {
+    version: '0.1.5',
     date: '2024-07-26',
     badge: {
-      title: `${updateBadgeData.major.title} | ${updateBadgeData.feature.title} | ${updateBadgeData.bug.title}`,
+      title: `${updateBadgeData.feature.title}`,
     },
     notes: [
       'Added new Release Notes page for tracking the release versions',
       'New note block added to the top of the homepage for announcements',
+    ],
+  },
+  {
+    version: '0.1.4',
+    date: '2024-07-15',
+    badge: {
+      title: `${updateBadgeData.improvement.title}`,
+    },
+    notes: [
+      'Updated README.md with improved contact, new banner and table of contact',
+      'Created LICENSE and CODE_OF_CONDUCT',
+    ],
+  },
+  {
+    version: '0.1.3',
+    date: '2024-06-30',
+    badge: {
+      title: `${updateBadgeData.minor.title} | ${updateBadgeData.bug.title}`,
+    },
+    notes: [
+      'updated new combined device screenshot in landing page',
+      'new form routes added for contact and request forms in formControllers.js',
+      'new requestCourseorFeature request added with switch tabs option in ContactMe/RequestFeature,jsx',
+    ],
+  },
+  {
+    version: '0.1.2',
+    date: '2024-06-22',
+    badge: {
+      title: `${updateBadgeData.minor.title} | ${updateBadgeData.feature.title} | ${updateBadgeData.bug.title}`,
+    },
+    notes: [
+      'Fixed all Cloudinary supported files',
+      'Updated contact info across the web app',
+      'Connected Cloudinary to upload profile photos and course posters',
+      'New routes added: updateUserRole, deleteUser, deleteProfile',
+      'Payment routes and payment controls added with Razorpay - for testing purposes',
+      'New screenshot image added with improved homepage responsiveness',
+      'Added new yearly subscription payment card',
     ],
   },
   {

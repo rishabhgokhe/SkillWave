@@ -1,6 +1,6 @@
 {
   "name": "SkillView",
-  "version": "0.1.0",
+  "version": "0.1.6",
   "private": true,
   "dependencies": {
     "@chakra-ui/react": "^2.8.2",
@@ -12,6 +12,7 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.5.2",
+    "animease": "^1.0.4",
     "axios": "^1.7.2",
     "chart.js": "^4.4.3",
     "clsx": "^2.1.1",

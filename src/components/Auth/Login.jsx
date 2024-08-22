@@ -1,18 +1,18 @@
 import { Container, FormLabel, Heading, Image, VStack, Box, Input, Button, Flex } from "@chakra-ui/react"
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
-// import { useDispatch } from 'react-redux';
-// import { login } from '../../redux/actions/user';
+import { login } from "../../redux/actions/user";
+import { useDispatch } from 'react-redux';
 
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const submitHandler = e => {
     e.preventDefault();
-    // dispatch(login(email, password));
+    dispatch(login(email, password));
   };
 
   return (

@@ -15,6 +15,7 @@ import TestimonialContent from '../ui/Testimonial.jsx';
 import FeatureSection from '../ui/features.jsx';
 import ExploreCoursesHome from '../ui/ExploreCoursesHome.jsx';
 import { FlipWords } from '../ui/flip_text.jsx';
+import { FadeDown } from 'animease';
 
 import FigmaSvg from '../../assets/svg/figma_icon.svg';
 import AmazonSvg from '../../assets/svg/amazon_icon.svg';
@@ -34,69 +35,79 @@ import LandingScreenshot from './LandingScreenshot.jsx';
 export default function Home() {
   return (
     <>
-      <Box p={'10'} className='block'>
+      <Box p={'10'} className="block">
         <VStack width={'full'} alignItems={'center'}>
-          <Stack direction={['column', 'row']}>
-            <Heading
-              className="block"
-              textAlign={['center', 'left']}
-              size={'4xl'}
-              fontWeight={'bold'}
-            >
-              Learning made
-            </Heading>
-            <Heading
-              ml={3}
-              className="block"
-              textAlign={['center', 'left']}
-              size={'4xl'}
-              fontWeight={'bold'}
-            >
-              <FlipWords
-                words={[
-                  'Easy!',
-                  'Accessible...',
-                  'Fun!',
-                  'Affordable!',
-                  'Engaging...',
-                  'Seamless!',
-                  'Convenient...',
-                  'Interactive!',
-                  'Rewarding!',
-                  'Innovative...',
-                  'Efficient!',
-                ]}
-                className={'flip-text block'}
-              />
-            </Heading>
-          </Stack>
-          <Text
-            textAlign={['center', 'left']}
-            children="Empower Yourself with Knowledge and Skills"
-            fontSize={'1.2rem'}
-          />
 
-          <Stack spacing={4} direction={['column', 'row']}>
-            <Link to="/courses">
-              <Button
-                rightIcon={<SearchVisualIcon />}
+          <FadeDown variant="div">
+            <Stack direction={['column', 'row']}>
+              <Heading
                 className="block"
-                size={'lg'}
-                colorScheme="blue"
+                textAlign={['center', 'left']}
+                size={'4xl'}
+                fontWeight={'bold'}
               >
-                Browse Courses
-              </Button>
-            </Link>
-            <Link to="/subscribe">
-              <Button
-                rightIcon={<CircleArrowUpRight02Icon />}
+                Learning made
+              </Heading>
+              <Heading
+                ml={3}
                 className="block"
-                size={'lg'}
+                textAlign={['center', 'left']}
+                size={'4xl'}
+                fontWeight={'bold'}
               >
-                Join Now
-              </Button>
-            </Link>
-          </Stack>
+                <FlipWords
+                  words={[
+                    'Easy!',
+                    'Accessible...',
+                    'Fun!',
+                    'Affordable!',
+                    'Engaging...',
+                    'Seamless!',
+                    'Convenient...',
+                    'Interactive!',
+                    'Rewarding!',
+                    'Innovative...',
+                    'Efficient!',
+                  ]}
+                  className={'flip-text block'}
+                />
+              </Heading>
+            </Stack>
+          </FadeDown>
+
+          <FadeDown variant="div" delay={0.3}>
+            <Text
+              textAlign={['center', 'left']}
+              children="Empower Yourself with Knowledge and Skills"
+              fontSize={'1.2rem'}
+            />
+          </FadeDown>
+
+          <FadeDown variant='div' delay={0.6}>
+            <Stack spacing={4} direction={['column', 'row']}>
+              <Link to="/courses">
+                <Button
+                  rightIcon={<SearchVisualIcon />}
+                  className="block"
+                  size={'lg'}
+                  colorScheme="blue"
+                >
+                  Browse Courses
+                </Button>
+              </Link>
+              <Link to="/subscribe">
+                <Button
+                  rightIcon={<CircleArrowUpRight02Icon />}
+                  className="block"
+                  size={'lg'}
+                >
+                  Join Now
+                </Button>
+              </Link>
+            </Stack>
+          </FadeDown>
+
+
         </VStack>
         {/* <Image 
             boxSize={'sm'}
@@ -107,7 +118,7 @@ export default function Home() {
         </Stack> */}
       </Box>
 
-      <LandingScreenshot />
+      <FadeDown variant='div' delay={0.9}><LandingScreenshot /></FadeDown>
       <ExploreCoursesHome />
       <FeatureSection />
       <TestimonialContent />
