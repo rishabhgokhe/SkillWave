@@ -31,6 +31,7 @@ import AdminCourses from './components/Admin/Admin Courses/AdminCourses.jsx';
 import CreateCourse from './components/Admin/Create Course/CreateCourse.jsx';
 import RequestTabSwitcher from './components/ContactMe/RequestTabSwitcher.jsx';
 import ReleaseNotes from './components/Release Notes/ReleaseNotes.jsx';
+import { GetMyProfile } from './redux/actions/user.js';
 
 function App() {
   // window.addEventListener('contextmenu', (e) => {
@@ -41,6 +42,8 @@ function App() {
   );
 
   const dispatch = useDispatch();
+
+  useEffect(() => () => GetMyProfile(), []);
 
   useEffect(() => {
     if (error) {

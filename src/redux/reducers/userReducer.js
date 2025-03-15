@@ -32,9 +32,25 @@ const userSlice = createSlice({
       state.isAuthenticated = false;
       state.error = action.payload;
     },
+
+    getProfileRequest: (state, action) => {
+      state.isLoading = true;
+      state.user = action.payload;
+    },
+    getProfileSuccess: (state, action) => {
+      state.isLoading = false;
+      state.isAuthenticated = true;
+      state.user = action.payload;
+      state.message = action.payload.message;
+    },
+    getProfileFail: (state, action) => {
+      state.isLoading = false;
+      state.error = action.payload;
+      state.isAuthenticated = false;
+    },
   }
 });
 
-export const { clearError, clearMessage, loginRequest, loginSuccess, loginFail } = userSlice.actions;
+export const { clearError, clearMessage, loginRequest, loginSuccess, loginFail, getProfileFail, getProfileSuccess, getProfileRequest } = userSlice.actions;
 
 export default userSlice.reducer;

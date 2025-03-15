@@ -36,6 +36,14 @@ Examples of unacceptable behavior include:
 * Other conduct which could reasonably be considered inappropriate in a
   professional setting
 
+## Contribution Rules  
+
+- **Before creating an issue**, check if a similar issue already exists to avoid duplication.  
+- **Follow the issue template and structure** to ensure clarity and ease of understanding.  
+- **Only submit a pull request (PR) if you have been assigned** the task by the repository maintainer.  
+- **Ensure your PR follows project guidelines**, including proper coding standards and documentation.  
+- **Clearly describe your changes** in the pull request to help maintainers review it efficiently.  
+
 ## Enforcement Responsibilities
 
 Community leaders are responsible for clarifying and enforcing our standards of
