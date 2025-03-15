@@ -54,8 +54,6 @@ A powerful admin panel to manage courses, track progress, and analyze platform p
 - **Secure Authentication & Authorization** – Protect user data with a robust security system.  
 - **Integrated Feedback System** – Gather insights and enhance course quality with user reviews.  
 
----
-
 ## 🚀 Upcoming Features  
 
 - **Advanced User Authentication** – Implement role-based access for enhanced security.  
@@ -189,8 +187,7 @@ We believe that **education has no boundaries** and should be available to anyon
 
 ## 📨 Feedback  
 
-Got feedback, suggestions, or ideas? Feel free to reach out!  
-[![Email Me](https://img.shields.io/badge/Email-Me-black?style=flat&logo=gmail&logoColor=white)](mailto:rishabhgokhe20contact@gmail.com)  
+Got feedback, suggestions, or ideas? Feel free to reach out! [![Email Me](https://img.shields.io/badge/Email-Me-black?style=flat&logo=gmail&logoColor=white)](mailto:rishabhgokhe20contact@gmail.com)  
 
 ---
 
